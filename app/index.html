@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html >
+<!-- manifest="appCache.manifest" -->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>poppies Technologies</title>
+    <meta name="description" content="">
+    <meta name="keywords" content=", business transformation, innovation">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- <link rel="icon" href="img/tabicon.ico"> -->
+    <!-- <link rel ="sitemap" href="/sitemap.xml"> -->
+    {{content-for "head"}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/poppies-com.css">
+
+    {{content-for "head-footer"}}
+  </head>
+<body id="page-top" class="index">
+    {{content-for "body"}}
+<!-- <script src="vendor/countries.js"></script> -->
+    <script src="assets/vendor.js"></script>
+    <script src="assets/poppies-com.js"></script>
+    <script type="text/javascript">
+    // window.addEventListener('load',function(e){
+    //   window.applicationCache.addEventListener('updateready',function(e){
+    //     if(window.applicationCache.status == window.applicationCache.UPDATEREADY){
+    //         window.applicationCache.swapCache();
+    //         window.location.reload();
+    //     }
+    //   },false);
+    // },false);
+
+    </script>
+
+    {{content-for "body-footer"}}
+  </body>
+</html>
