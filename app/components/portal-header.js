@@ -11,5 +11,6 @@ export default Ember.Component.extend({
        Ember.$("#navigation").toggleClass("hidden-xs");
    });
   }
+  
 
 });
