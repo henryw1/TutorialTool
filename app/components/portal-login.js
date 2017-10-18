@@ -19,8 +19,9 @@ actions:{
 
       session.set('isAuthenticated', true);
       session.set('user', user);
-      this.transitionToRoute('index');
-            this.controller.set("haserror", "");
+      this.get('router').transitionTo('index');
+      //this.transitionToRoute('index');
+        this.set("haserror", "");
     }else{
       this.controller.set("haserror", "has-error");
         }
