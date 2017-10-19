@@ -1,10 +1,75 @@
-            <div class="col-lg-12 col-sm-12">
+<div class="col-lg-12 col-sm-12">
+  <div class="row cards">
+    {{current-users}}
+			<div class="col-md-9">
+				<div class="panel panel-card">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-12">
+								<a href="#" class="active" id="login-form-link">New Question</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+                <textarea class="form-control col-lg-12" style="resize:vertical" id="comment" rows="5"></textarea>
+							</div>
+						</div>
+            <div class="row card-footer">
+              <div class="col-lg-12">
+                <nav class="nav-tabs">
+                  <button type="button" class="btn btn-labeled btn-success">
+                <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Submit</button>
+                </nav>
+              </div>
+            </div>
+					</div>
+				</div>
+			</div>
+
+      <!--  This is for the students answer-->
+      <div class="col-md-9">
+        <div class="panel panel-card">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-12">
+                <a href="#" class="active" id="login-form-link">Johns answer</a>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <p>
+                  Cards are built with as little markup and styles as possible, but still manage to deliver a ton of control and customization. Built with flexbox, they offer easy alignment and mix well with other Bootstrap components.
+
+Below is an example of a basic card with mixed content and a fixed width. Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element. This is easily customized with our variou
+                </p>
+                <!-- <textarea class="form-control col-lg-12" style="resize:vertical" id="comment" rows="5"></textarea> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+            <!-- <div class="col-lg-12 col-sm-12">
               <div class="row">
-                {{current-users}}            
+
                 <div class="col-lg-8 col-sm-8">
                   <div class="card col-lg-12">
                           <div class="card-content col-lg-12">
-                            <div class="card-header-blue col-lg-12">
+                            <div class="card-header col-lg-12">
                                  <h1 class="card-heading">Post a new quesion</h1>
                               </div>
                               <div class="card-body">
@@ -23,6 +88,6 @@
                       </div>
                 </div>
               </div>
-              </div>
+              </div> -->
 
 {{outlet}}
