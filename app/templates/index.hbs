@@ -1,6 +1,6 @@
 <div class="col-lg-12 col-sm-12">
   <div class="row cards">
-    {{current-users}}
+    {{current-users }}
 			<div class="col-md-9">
 				<div class="panel panel-card">
 					<div class="panel-heading">
@@ -43,11 +43,9 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-12">
-                <p>
-                  Cards are built with as little markup and styles as possible, but still manage to deliver a ton of control and customization. Built with flexbox, they offer easy alignment and mix well with other Bootstrap components.
-
-Below is an example of a basic card with mixed content and a fixed width. Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element. This is easily customized with our variou
-                </p>
+                {{#each model as |post|}}
+                  {{response.data.title}}
+                  {{/each}}
                 <!-- <textarea class="form-control col-lg-12" style="resize:vertical" id="comment" rows="5"></textarea> -->
               </div>
             </div>
