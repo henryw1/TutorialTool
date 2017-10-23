@@ -1,16 +1,28 @@
 {{yield}}
-  <div class="col-md-3">
-    <div class="panel panel-card">
-      <div class="panel-heading">
+<!--<div class="accordion-group">
+<div class="accordion-heading">
+<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+Collapsible Group Item #2
+</a>
+</div>
+<div id="collapseTwo" class="accordion-body collapse">
+<div class="accordion-inner">
+Anim pariatur cliche...
+</div>
+</div>
+</div> -->
+  <div class="col-md-3 accordion">
+    <div class="panel panel-card accordion-group">
+      <div class="panel-heading accordion-heading">
         <div class="row">
           <div class="col-xs-12">
-            <a href="#" class="active" id="login-form-link">Current Users</a>
+            <a href="#collapseTwo" class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion2" id="login-form-link">Current Users</a>
           </div>
 
         </div>
         <hr>
       </div>
-      <div class="panel-body">
+      <div id="collapseTwo" class="panel-body accordion-inner accordion-body collapse in">
         <div class="row">
           <div class="col-lg-12">
             <ul class="nav nav_ul navbar-nav">

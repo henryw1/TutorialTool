@@ -19,6 +19,7 @@
     "broccoli-asset-rev": "^2.4.5",
     "broccoli-funnel": "^1.2.0",
     "broccoli-merge-trees": "^2.0.0",
+    "cors": "^2.8.4",
     "ember-ajax": "^3.0.0",
     "ember-cli": "2.13.2",
     "ember-cli-app-version": "^3.0.0",
@@ -34,7 +35,6 @@
     "ember-cli-sri": "^2.1.1",
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "^2.13.0",
-    "cors": "^2.8.4",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.0.0",
@@ -42,8 +42,10 @@
     "ember-simple-auth-token": "^2.1.0",
     "ember-source": "~2.13.0",
     "ember-welcome-page": "^3.0.0",
+    "express": "^4.16.2",
     "glob": "^4.5.3",
     "loader.js": "^4.2.3",
+    "mongoose": "^4.12.3",
     "morgan": "^1.9.0"
   },
   "engines": {

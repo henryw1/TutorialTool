@@ -42,6 +42,16 @@ h6 {
 	textarea.form-control{
 		align-self: center;
 	}
+	///accordion-toggle
+
+	.accordion-toggle:after {
+    font-family: 'FontAwesome';
+    content: "\f078";
+    float: right;
+}
+.accordion-opened .accordion-toggle:after {
+    content: "\f054";
+}
 
 	/*###############################################*/
 	// cards
@@ -60,7 +70,7 @@ h6 {
 	}
 	.panel-card>.panel-heading {
 		color: #00415d;
-		background-color: whitesmoke;
+		background-color: snow;
 		border-color: #fff;
 		text-align:center;
 	}
