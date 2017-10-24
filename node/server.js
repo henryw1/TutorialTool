@@ -9,30 +9,56 @@ app.use(function(req, res, next) {
   	res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
     next();
 });
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/wainaina";
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  // db.collection("customers").findOne({}, function(err, result) {
-  //   if (err) throw err;
-  //   console.log(result.name);
-  //   db.close();
+// var MongoClient = require('mongodb').MongoClient;
+// var url = "mongodb://localhost:27017/emberData";
+// MongoClient.connect(url, function(err, db) {
+//   if (err) throw err;
+//   db.collection("customers").findOne({}, function(err, result) {
+//     if (err) throw err;
+//     console.log(result.name);
+//     db.close();
+//   });
+// });
+
+mongoose.connect('mongodb://localhost:27017/wainaina', function(err){
+if (err)
+{
+//  throw console.error();
+} else {
+  console.log("connected ");
+  var noteSchema = new mongoose.Schema(
+    {
+  	id: String,
+  	value: Number,
+  	ts: String
+  }
+  // { collection: 'notes' }
+
+  );
+  //var collectionName='note';
+  //noteSchema.set('collection', 'note');
+
+  var NoteModel = mongoose.model('testData',noteSchema, 'testData');
+  //  New lines!
+  // app.get('/api/notes',function(req,res) {
+  // 	res.send('Working');
   // });
-});
+  app.get('/api/test', function(req,res) {
+    	NoteModel.find({},function(err,docs) {
+  		if(err) {
+        console.log("error");
+        //res.send('Working');
+        res.send({error:err});
+  		}
+  		else {
+        console.log(docs);
+        res.send(docs);
 
-//mongoose.connect(await mongod.getConnectionString(), { useMongoClient: true })
-// mongoose.connect('mongodb://localhost');
+  		}
+  	});
+  });
+}
 
-var noteSchema = new mongoose.Schema({
-	title: 'string',
-	content: 'string',
-	author: 'string'
-});
-
-var NoteModel = mongoose.model('note',noteSchema);
-//New lines!
-app.get('/api/',function(req,res) {
-	res.send('Working');
 });
 
 app.listen('4500');

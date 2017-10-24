@@ -16,7 +16,7 @@
 								<form id="login-form" {{action 'authenticate' on='submit'}} method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<label for="identification">Login</label>
-                    {{input type="text" name="identification" id="identification" class="form-control" value=identification placeholder= "User Name"}}
+                    {{input type="text" name="identification" id="identification" tabindex="1" class="form-control" value=identification placeholder= "User Name"}}
 										<!-- <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value=""> -->
 									</div>
 									<div class="form-group">
@@ -28,7 +28,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-                        <button data-toggle="snackbar" data-style="toast" data-content="Login Successful" {{action 'authenticate'}} class="form-control btn btn-login" type="submit">Login</button>
+                        <button data-toggle="snackbar" data-style="toast" tabindex="3" data-content="Login Successful" {{action 'authenticate'}} class="form-control btn btn-login" type="submit">Login</button>
 
 												<!-- <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In"> -->
 											</div>

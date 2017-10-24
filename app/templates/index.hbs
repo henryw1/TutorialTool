@@ -2,6 +2,10 @@
   <div class="row cards">
     {{current-users }}
     {{question-area}}
+    
+    {{#each model as |item|}}
+	{{item.content}}
+{{/each}}
 
     <!-- <div class="accordion-group">
 <div class="accordion-heading">
