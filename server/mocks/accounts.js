@@ -16,7 +16,7 @@ module.exports = function(app) {
         }
       };
 
-      // delay this a bit so we see the loading template
+     //delay this a bit so we see the loading template
       setTimeout(function() {
         res.status(200).send(response);
       }, 1000);

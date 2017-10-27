@@ -3,9 +3,9 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 // import AuthenticateRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
-    	model: function() {
-    		return this.store.findAll('notes');
-    	}
+    	// model: function() {
+    	// 	return this.store.findAll('notes');
+    	// }
 });
 // import Ember from 'ember';
 //

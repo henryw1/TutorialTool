@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  //   classNames:['accordion', 'accordion-heading', 'accordion-opened',],
+  //   classNames:['accordion', 'accordion-heading', 'accordion-opened', 'accordion-toggle', 'clickable'],
   //   tagName:'a',
   //   attributeBindings:['url:href'],
   //   didInsertElement() {
@@ -16,4 +16,17 @@ export default Ember.Component.extend({
   //      Ember.$('.accordion-heading i').toggleClass('fa-chevron-right fa-chevron-down');
   //  })
   //  }
+// 
+//   Embeer.$().on('click', '.accordion-heading .clickable', function(e){
+//     var $this = Ember.$(this);
+// 	if(!$this.hasClass('panel-collapsed')) {
+// 		$this.parents('.panel').find('.panel-body').slideUp();
+// 		$this.addClass('panel-collapsed');
+// 		$this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+// 	} else {
+// 		$this.parents('.panel').find('.panel-body').slideDown();
+// 		$this.removeClass('panel-collapsed');
+// 		$this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+// 	}
+// })
 });
