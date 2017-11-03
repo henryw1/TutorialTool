@@ -2,19 +2,43 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   session: Ember.inject.service('session'),
-  //localdata: Ember.inject.service("localdata"),
-
+  store: Ember.inject.service(),
+  //mongo: Ember.inject.service('mongo-db'),
+  lecturer: Ember.computed(function(){
+  const store = this.get('store');
+  return store.peekAll('note');
+}).volatile(),
 actions:{
   authenticate() {
-    // debugger;
+    //debugger;
     var sesh = this.get("session");
-      let { identification, password } = this.getProperties('identification', 'password');
-      sesh.authenticate('authenticator:oauth2', identification, password).catch((reason) => {
-        this.set('errorMessage', reason.error || reason);
-      });
-      if(sesh.session.isAuthenticated){
-        this.get('router').transitionTo('index');
+    var dat = this.get("lecturer");
+    var email = this.get("name");
+    var password = this.get("password");
+    var content1 = dat.findBy('name', email);
+    var content2 = dat.findBy('session', password);
+    if (content1){
+      var lecturer = content.data;
+      if (lecturer.key === password){
+        sesh.set('isAuthenticated', true);
+         sesh.set('user', lecturer);
+         this.get('router').transitionTo('index');
+      }else{
+        console.log("dont enter");
       }
+    }else if (content2) {
+      var key = content2.data;
+      if(key.session === password){
+        sesh.set('isAuthenticated', true);
+        sesh.set('user', email);
+        this.get('router').transitionTo('index');
+      }else{
+        console.log("dont enter");
+      }
+
+    }else{
+      console.log("dont enter");
+        }
     }
   // authenticate(){
   //   var users = this.get("localdata").retrieve("users");

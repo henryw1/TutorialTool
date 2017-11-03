@@ -1,12 +1,8 @@
 <div class="col-lg-12 col-sm-12">
   <div class="row cards">
-    
-    {{current-users }}
-    {{question-area}}
 
-    {{#each model as |item|}}
-	{{item.content}}
-{{/each}}
+    {{current-users}}
+    {{question-area}}
 
     <!-- <div class="accordion-group">
 <div class="accordion-heading">
@@ -21,7 +17,7 @@ Anim pariatur cliche...
 </div>
 </div> -->
 
-
+{{#each model as |item|}}
       <!--  This is for the students answer-->
       <div class="col-md-9">
         <div class="panel panel-card">
@@ -45,9 +41,11 @@ Anim pariatur cliche...
           </div>
         </div>
       </div>
-
+      {{item.name}}
+     {{/each}}
   </div>
 </div>
+
 
 
 

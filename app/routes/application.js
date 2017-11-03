@@ -3,5 +3,7 @@ import Ember from 'ember';
 //import AuthenticateRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend({
-
+  model: function() {
+return this.store.findAll('note');
+}
 });

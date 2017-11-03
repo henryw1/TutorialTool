@@ -25,19 +25,7 @@ module.exports = function(environment) {
      'connect-src' : "'self' http://localhost:4500"
    }
   };
-  ENV['ember-simple-auth'] = {
-  authorizer: 'authorizer:token'
-};
-ENV['ember-simple-auth-token'] = {
-  serverTokenEndpoint: '/api/token-auth/',
-  identificationField: 'username',
-  passwordField: 'password',
-  tokenPropertyName: 'token',
-  refreshTokenPropertyName: 'refresh_token',
-  authorizationPrefix: 'Bearer ',
-  authorizationHeaderName: 'Authorization',
-  headers: {},
-};
+
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

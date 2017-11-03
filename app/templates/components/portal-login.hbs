@@ -1,3 +1,7 @@
+
+{{#each model as |item|}}
+	{{item.name}}
+{{/each}}
 <div class="row logincard">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-login">
@@ -16,7 +20,7 @@
 								<form id="login-form" {{action 'authenticate' on='submit'}} method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<label for="identification">Login</label>
-                    {{input type="text" name="identification" id="identification" tabindex="1" class="form-control" value=identification placeholder= "User Name"}}
+                    {{input type="text" name="name" id="name" tabindex="1" class="form-control" value=name placeholder= "User Name"}}
 										<!-- <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value=""> -->
 									</div>
 									<div class="form-group">
