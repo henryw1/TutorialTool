@@ -2,6 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var tunnel = require('tunnel-ssh');
 var app = express();
+var router = express.Router();
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
   	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -32,13 +33,28 @@ var server = tunnel(config, function(error, server) {
     //var collection = db.collection('testData');
     var noteSchema = new mongoose.Schema({
       name: 'String',
-      pass: 'String',
+      key: 'String',
       session: 'String'
     });
-    var NoteModel = mongoose.model('lecturers', noteSchema, 'lecturers');
+    var NoteModel = mongoose.model('students', noteSchema, 'students');
 
-    app.get('/api/notes', function(req, res) {
+    app.get('/api/students', function(req, res1) {
       NoteModel.find({}, function(err, docs) {
+        if (err) {
+          console.log("error");
+          res1.send({
+            error: err
+          });
+        } else {
+          console.log(docs);
+          res1.send(JSON.stringify({student:docs}));
+
+        }
+      });
+    });
+    var studentModel = mongoose.model('lecturers', noteSchema, 'lecturers');
+    app.get('/api/lecturers', function(req, res) {
+      studentModel.find({}, function(err, docs) {
         if (err) {
           console.log("error");
           res.send({
@@ -46,12 +62,25 @@ var server = tunnel(config, function(error, server) {
           });
         } else {
           console.log(docs);
-          res.send(JSON.stringify({note:docs}));
-          //res.send({notes:docs});
+          res.send(JSON.stringify({lecturer:docs}));
 
         }
       });
+     });
+
+     module.exports.addStudent = function(req,res) {
+    var student = new Student(req.body.student);
+    student.save(function(err) {
+        if (err) {
+            res.send(err);
+        }
+        res.json({student: student});
     });
+};
+     router.route('/login').post(function(req, res) { students.addStudent(req,res); })
+                                   .get(function(req,res) { students.getAllStudent(req,res) });
+
+
   });
 });
 
@@ -110,3 +139,4 @@ var server = tunnel(config, function(error, server) {
 // });
 
 app.listen('4500');
+exports = module.exports = app;

@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   //mongo: Ember.inject.service('mongo-db'),
   lecturer: Ember.computed(function(){
   const store = this.get('store');
-  return store.peekAll('note');
+  return store.peekAll('lecturer');
 }).volatile(),
 actions:{
   authenticate() {
