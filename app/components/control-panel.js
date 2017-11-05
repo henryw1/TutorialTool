@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   session: Ember.inject.service('session'),
-    mongo: Ember.inject.service("mongo-db"),
+    //mongo: Ember.inject.service("mongo-db"),
     groupedItems: Ember.computed('model', function() {
 let pos = 0;
 let result = [];
@@ -15,15 +15,15 @@ return result;
 }),
 
 
-  actions:{
-    save(){
-      debugger;
+  // actions:{
+  //   save(){
+  //     debugger;
 
 
     //   var db= this.get('mongo')
     //   var seh = this.get('session');
     //   var key = this.get("key");
     //
-     }
-  }
+  //}
+//  }
 });

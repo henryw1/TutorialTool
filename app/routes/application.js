@@ -3,6 +3,7 @@ import Ember from 'ember';
 //import AuthenticateRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend({
+  session: Ember.inject.service("session"),
   model() {
     return Ember.RSVP.hash({
       student: this.store.findAll('student'),

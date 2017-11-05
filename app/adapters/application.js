@@ -1,6 +1,7 @@
-import DS from 'ember-data';
+import JSONAPIAdapter from 'ember-data/adapters/json-api';
 
-export default DS.RESTAdapter.extend({
-	namespace: 'api',
-	host: 'http://localhost:4500'
+export default JSONAPIAdapter.extend({
+    namespace: 'api',
+    host: 'http://localhost:4500',
+    headers: {"Content-Type":"application/json"}
 });
