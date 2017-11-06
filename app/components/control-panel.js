@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+
   session: Ember.inject.service('session'),
     //mongo: Ember.inject.service("mongo-db"),
     groupedItems: Ember.computed('model', function() {
@@ -14,16 +15,9 @@ while (pos < this.get('model.length')) {
 return result;
 }),
 
-
-  // actions:{
-  //   save(){
-  //     debugger;
-
-
-    //   var db= this.get('mongo')
-    //   var seh = this.get('session');
-    //   var key = this.get("key");
-    //
-  //}
-//  }
+  actions:{
+    save(){
+  this.sendAction('action');
+  }
+ }
 });

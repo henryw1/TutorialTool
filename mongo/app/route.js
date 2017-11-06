@@ -17,15 +17,21 @@ module.exports = function (router) {
             .post(function (req, res) {
                 lecturers.addNote(req, res)
             });
+            router.route('/api/notes').get(function (req, res) {
+                    note.getAllNotes(req, res)
+                })
+                .post(function (req, res) {
+                    note.addNote(req, res)
+                });
 
     /* Ruta de borrado (delete) y modificado (patch) */
-    // router.route('/api/notes/:note_id').get(function (req, res) {
-    //         notes.getIdNote(req, res)
-    //     })
-    //     .delete(function (req, res) {
-    //         notes.deleteNote(req, res)
-    //     })
-    //     .patch(function (req, res) {
-    //         notes.saveNote(req, res)
-    //     });
+    router.route('/api/lecturers/:lecturer_id').get(function (req, res) {
+            lecturers.getIdNote(req, res)
+        })
+        .delete(function (req, res) {
+            lecturers.deleteNote(req, res)
+        })
+        .patch(function (req, res) {
+            lecturers.saveNote(req, res)
+        });
 };

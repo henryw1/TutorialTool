@@ -29,7 +29,7 @@ export default Ember.Controller.extend({
         if (lecturer.key === password) {
           session.set('isLecturer', true);
           session.set('isAuthenticated', true);
-          session.set('user', lecturer);
+          session.set('user', email);
           //this.get('router').transitionTo('index');
           this.transitionToRoute('index');
         } else {

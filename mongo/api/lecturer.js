@@ -14,7 +14,7 @@ module.exports.getAllNotes = function (req, res) {
 /* Buscara la nota gracias a req.params.note_id y nos devolvera
 la nota en una variable 'note' */
 module.exports.getIdNote = function (req, res) {
-    Lecturer.findById(req.params.note_id, function (err, docs) {
+    Lecturer.findById(req.params.lecturer_id, function (err, docs) {
         if (err) res.send(err);
         console.log(docs);
         res.send({
@@ -25,7 +25,7 @@ module.exports.getIdNote = function (req, res) {
 
 /* Eliminado de nota */
 module.exports.deleteNote = function (req, res) {
-    Lecturer.findById(req.params.note_id, function (err, elem) {
+    Lecturer.findById(req.params.lecturer_id, function (err, elem) {
         if (err) res.send(err);
         elem.remove(function (err, docs) {
             if (err) res.send(err);
@@ -39,7 +39,7 @@ module.exports.deleteNote = function (req, res) {
 
 /* Salvar nota */
 module.exports.addNote = function (req, res) {
-    var note = new Note(req.body.note);
+    var note = new Note(req.body.lecurer);
     note.save(function (err, elem) {
         if (err) res.send(err);
         console.log(elem);
@@ -51,7 +51,7 @@ module.exports.addNote = function (req, res) {
 
 /* Modificar nota ($set: req.body.note) */
 module.exports.saveNote = function (req, res) {
-    Lecturer.findByIdAndUpdate(req.params.note_id, {
+    Lecturer.findByIdAndUpdate(req.params.lecturer_id, {
         $set: req.body.note
     }, function (err, elem) {
         if (err) res.send(err);

@@ -26,7 +26,8 @@ export default Ember.Component.extend({
         var lecturer = lecturer.data;
         if (lecturer.key === password) {
           sesh.set('isAuthenticated', true);
-          sesh.set('user', lecturer);
+          debugger;
+          sesh.set('user', email);
           this.get('router').transitionTo('index');
         } else {
           console.log("dont enter");

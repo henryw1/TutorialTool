@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
   actions: {
           save: function () {
             debugger;
-              console.log("testing");
+              console.log("action received");
           }
       }
 });

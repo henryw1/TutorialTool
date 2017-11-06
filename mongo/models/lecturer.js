@@ -6,5 +6,6 @@ var noteSchema = new mongoose.Schema({
 	key: 'string',
   session: 'string',
 	question : 'string',
+	id:"string",
 });
 module.exports = mongoose.model('lecturer',noteSchema);
