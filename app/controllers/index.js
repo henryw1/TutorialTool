@@ -6,10 +6,10 @@ actions: {
         save: function () {
           debugger;
 
-          var user = this.get("sesh").get('user');
+          var _id = this.get("sesh").get('_id');
           var token = this.get("key");
 
-          this.store.queryRecord('lecturer', {name:user}).then(function(lecturer) {
+          this.store.findRecord('lecturer',_id).then(function(lecturer) {
             lecturer.get('session'); // => "Rails is Omakase"
 
             lecturer.set('session', token);

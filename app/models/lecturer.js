@@ -5,5 +5,5 @@ export default DS.Model.extend({
   session: DS.attr('string'),
   key: DS.attr('string'),
   question: DS.attr('string'),
-  //i: DS.attr('string'),
+  _id: DS.attr('string'),
 });

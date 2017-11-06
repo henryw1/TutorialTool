@@ -5,6 +5,6 @@ export default Ember.Service.extend({
   store: Ember.inject.service('store'),
   isAuthenticated: false,
   user:null,
-  userExists:false,
+  _id:null,
 isLecturer:false,
 });

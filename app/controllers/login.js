@@ -17,6 +17,7 @@ export default Ember.Controller.extend({
 
   actions: {
     authenticate() {
+
       //var store = this.get("store");
       var session = this.get("session");
       var dat = this.get("lect");
@@ -25,11 +26,14 @@ export default Ember.Controller.extend({
       var lecturer = dat.findBy('name', email);
       var student1 = dat.findBy('session', password);
       if (lecturer) {
+        debugger;
         var lecturer = lecturer.data;
         if (lecturer.key === password) {
           session.set('isLecturer', true);
           session.set('isAuthenticated', true);
           session.set('user', email);
+
+          session.set('_id', lecturer._id)
           //this.get('router').transitionTo('index');
           this.transitionToRoute('index');
         } else {
