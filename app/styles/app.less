@@ -52,7 +52,96 @@ h6 {
 .accordion-opened .accordion-toggle:after {
     content: "\f054";
 }
+/*###############################################*/
 
+.testimonial{
+    margin-bottom: 10px;
+}
+
+    .testimonial-section {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        position: relative;
+        border: 1px solid #fff;
+    }
+    .testimonial-section:after {
+        top: 100%;
+        left: 50px;
+        border: solid transparent;
+        content: " ";
+        position: absolute;
+        border-top-color: #fff;
+        border-width: 15px;
+        margin-left: -15px;
+    }
+		.testimonial.testimonial-success-filled{
+
+	 }
+			 .testimonial.testimonial-success-filled .testimonial-section{
+					 color: #fff;
+					 background-color: #5cb85c;
+					 border-color: #4cae4c;
+			 }
+
+					 .testimonial.testimonial-success-filled .testimonial-section:after{
+							 border-top-color: #5CB85C;
+					 }
+
+			 .testimonial.testimonial-success-filled .testimonial-desc{
+
+			 }
+
+					 .testimonial.testimonial-success-filled .testimonial-desc img{
+							 border-color: #4cae4c;
+							 background-color: #5cb85c;
+					 }
+
+					 .testimonial.testimonial-success-filled .testimonial-writer-name{
+							 color: #5CB85C;
+					 }
+					 /*###############################################*/
+					 // router to login/ loading page
+					 //*************
+
+ .loading {
+  padding: 2em 5em;
+  font: normal 40px/50px Arial, sans-serif;
+  color: #999;
+}
+.loading p {
+  height: 100px;
+  float: left;
+  margin-right: 0.3em;
+}
+b {
+  float: left;
+  overflow: hidden;
+  position: relative;
+  height: 50px;
+}
+span1 {
+ display: inline-block;
+color: @theme-success;
+position: relative;
+white-space: nowrap;
+top: 0;
+left: 0;
+-webkit-animation: move 7s;
+-webkit-animation-iteration-count: infinite;
+-webkit-animation-delay: 2s;
+}
+
+@keyframes move {
+0%  { top: 0px; }
+20% { top: -50px; }
+40% { top: -100px; }
+60% { top: -150px; }
+80% { top: -200px; }
+}
 	/*###############################################*/
 	// cards
 	//*************

@@ -52,7 +52,7 @@ module.exports.addNote = function (req, res) {
 /* Modificar nota ($set: req.body.note) */
 module.exports.saveNote = function (req, res) {
     Lecturer.findByIdAndUpdate(req.params.lecturer_id, {
-        $set: req.body.note
+        $set: req.body.lecturer
     }, function (err, elem) {
         if (err) res.send(err);
         console.log(elem);

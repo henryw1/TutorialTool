@@ -7,4 +7,5 @@ export default Ember.Service.extend({
   user:null,
   _id:null,
 isLecturer:false,
+isStudent:false,  
 });
