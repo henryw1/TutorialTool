@@ -8,6 +8,32 @@ export default Ember.Component.extend({
     return store.peekAll('lecturer');
 
   }).volatile(),
+  //classNames: ['btn', 'btn-lg', 'btn-circle'],
+  //tagName: 'a',
+  //  attributeBindings: ['url:href'],
+  didInsertElement() {
+    this._super(...arguments);
+  Ember.$('a.button1').on('click', function(){
+Ember.$(' a.button1').toggleClass('active');
+Ember.$(' .collapse1').toggleClass('collapse');
+
+return false;
+});
+Ember.$('a.button2').on('click', function(){
+Ember.$(' a.button2').toggleClass('active');
+Ember.$(' .collapse2').toggleClass('collapse');
+
+return false;
+});
+Ember.$('.fab').hover(function () {
+    //Ember.$(this).toggleClass('active');
+});
+Ember.$(function () {
+  Ember.$('[data-toggle="tooltip"]').tooltip()
+})
+
+
+},
 actions: {
         NewQuestion: function () {
           debugger;

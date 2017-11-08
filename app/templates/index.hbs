@@ -22,7 +22,7 @@
             <ul class="nav nav_ul navbar-nav col-lg-12">
               {{#each student as |item|}}
                 <li class="dropdown col-lg-12">
-                  <a href="#collapseExample" class="dropdown-toggle" data-toggle="collapse" {{action 'ans' item}}>{{item.name}}<span class="glyphicon glyphicon-user pull-right"></span></a>
+                  <a href="#" class="dropdown-toggle" {{action 'ans' item}}>{{item.name}}<span class="glyphicon glyphicon-user pull-right"></span></a>
                 </li>
               {{/each}}
             </ul>
@@ -31,9 +31,14 @@
       </div>
     </div>
   </div>
+    <!-- ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt -->
     {{question-area}}
-    <div class="col-md-9">
-      <div class="panel panel-card collapse" id="collapseExample">
+    <a href="#collapseExample" data-toggle="tooltip" data-placement="right" title="Answer" class="dropdown-toggle  button2 btn btn-success btn-circle btn-lg " alt="New Quesstion"> <i class="fa fa-times"></i></a>
+
+    <!-- ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt -->
+
+    <div class="col-md-9 ans">
+      <div class="panel panel-card collapse2" id="collapseExample">
         <div class="panel-heading">
           <div class="row">
             <div class="col-xs-12">
