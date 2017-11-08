@@ -4,7 +4,7 @@ var Lecturer = require('../models/lecturer');
 module.exports.getAllNotes = function (req, res) {
     Lecturer.find({}, function (err, docs) {
         if (err) res.send(err)
-        console.log(docs);
+        //console.log(docs);
         res.send({
             lecturer: docs
         });
@@ -16,7 +16,7 @@ la nota en una variable 'note' */
 module.exports.getIdNote = function (req, res) {
     Lecturer.findById(req.params.lecturer_id, function (err, docs) {
         if (err) res.send(err);
-        console.log(docs);
+        //console.log(docs);
         res.send({
             lecturer: docs
         });
@@ -29,7 +29,7 @@ module.exports.deleteNote = function (req, res) {
         if (err) res.send(err);
         elem.remove(function (err, docs) {
             if (err) res.send(err);
-            console.log(docs);
+          //  console.log(docs);
             res.send({
                 lecturer: docs
             });
@@ -42,7 +42,7 @@ module.exports.addNote = function (req, res) {
     var note = new Note(req.body.lecurer);
     note.save(function (err, elem) {
         if (err) res.send(err);
-        console.log(elem);
+      //  console.log(elem);
         res.send({
             lecturer: elem
         });
@@ -55,7 +55,7 @@ module.exports.saveNote = function (req, res) {
         $set: req.body.lecturer
     }, function (err, elem) {
         if (err) res.send(err);
-        console.log(elem);
+      //  console.log(elem);
         res.send({
             lecturer: elem
         });

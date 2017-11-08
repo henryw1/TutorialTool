@@ -4,7 +4,7 @@ var Note = require('../models/note');
 module.exports.getAllNotes = function (req, res) {
     Note.find({}, function (err, docs) {
         if (err) res.send(err)
-        console.log(docs);
+        //console.log(docs);
         res.send({
             note: docs
         });
@@ -16,7 +16,7 @@ la nota en una variable 'note' */
 module.exports.getIdNote = function (req, res) {
     Note.findById(req.params.note_id, function (err, docs) {
         if (err) res.send(err);
-        console.log(docs);
+        //console.log(docs);
         res.send({
             note: docs
         });
@@ -29,7 +29,7 @@ module.exports.deleteNote = function (req, res) {
         if (err) res.send(err);
         elem.remove(function (err, docs) {
             if (err) res.send(err);
-            console.log(docs);
+            //console.log(docs);
             res.send({
                 note: docs
             });
@@ -42,7 +42,7 @@ module.exports.addNote = function (req, res) {
     var note = new Note(req.body.note);
     note.save(function (err, elem) {
         if (err) res.send(err);
-        console.log(elem);
+        //console.log(elem);
         res.send({
             note: elem
         });
