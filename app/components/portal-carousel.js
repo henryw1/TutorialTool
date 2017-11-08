@@ -13,7 +13,6 @@ export default Ember.Component.extend({
     var slider = this.$().carousel({
     keyboard: true,
     interval: 5000,
-
      });
      slider.on("touchstart", function(event){
 

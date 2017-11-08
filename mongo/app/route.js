@@ -34,4 +34,14 @@ module.exports = function (router) {
         .patch(function (req, res) {
             lecturers.saveNote(req, res)
         });
+
+        router.route('/api/students/:student_id').get(function (req, res) {
+                students.getIdNote(req, res)
+            })
+            .delete(function (req, res) {
+                students.deleteNote(req, res)
+            })
+            .patch(function (req, res) {
+                students.saveNote(req, res)
+            });
 };

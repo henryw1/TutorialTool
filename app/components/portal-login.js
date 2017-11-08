@@ -18,16 +18,16 @@ export default Ember.Component.extend({
       var store = this.get("store");
       var sesh = this.get("session");
       var dat = this.get("lect");
-      var email = this.get("name");
+      var name = this.get("name");
       var password = this.get("password");
-      var lecturer = dat.findBy('name', email);
+      var lecturer = dat.findBy('name', name);
       var student = dat.findBy('session', password);
       if (lecturer) {
         var lecturer = lecturer.data;
         if (lecturer.key === password) {
           sesh.set('isAuthenticated', true);
           debugger;
-          sesh.set('user', email);
+          sesh.set('user', name);
           this.get('router').transitionTo('index');
         } else {
           console.log("dont enter");
@@ -36,9 +36,9 @@ export default Ember.Component.extend({
         var key = student.data;
         if (key.session === password) {
           sesh.set('isAuthenticated', true);
-          sesh.set('user', email);
+          sesh.set('user', name);
           var newstudent = store.createRecord('student', {
-            name: email,
+            name: name,
             answer: " ",
           });
           newstudent.save();
@@ -51,14 +51,6 @@ export default Ember.Component.extend({
         console.log("dont enter");
       }
     },
-    // save:() {
-    //   debugger;
-    //   var student = this.store.createRecord('student', {
-    //     name: email,
-    //     answer: " ",
-    //   });
-    //   student.save();
-    // }
   }
 
 });

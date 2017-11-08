@@ -14,7 +14,7 @@ module.exports.getAllNotes = function (req, res) {
 /* Buscara la nota gracias a req.params.note_id y nos devolvera
 la nota en una variable 'note' */
 module.exports.getIdNote = function (req, res) {
-    student.findById(req.params.student_id, function (err, docs) {
+    Student.findById(req.params.student_id, function (err, docs) {
         if (err) res.send(err);
         console.log(docs);
         res.send({

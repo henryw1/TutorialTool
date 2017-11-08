@@ -11,7 +11,6 @@ export default Ember.Component.extend({
 actions: {
         save: function () {
           debugger;
-
           var _id = this.get("sesh").get('_id');
           var token = this.get("key");
           var lecturer =this.get("lect");

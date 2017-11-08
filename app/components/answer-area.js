@@ -10,11 +10,13 @@ export default Ember.Component.extend({
 actions: {
         answer: function () {
           debugger;
-          var name = this.get("sesh").get('user');
-          var answer = this.get("answer");
           var student =this.get("stud");
+          var name = this.get("sesh").get('user');
+          var Cstudent = student.findBy('name', name);
+          var id = Cstudent.id;
+          var answer = this.get("answer");
           var store = this.get("store");
-          store.queryRecord('student',{name:student}).then(function(student) {
+          store.findRecord('student',id).then(function(student) {
             student.get('answer');  //=> "Rails is Omakase"
             student.set('answer', answer);
             student.save(); //=> PATCH to '/posts/1'
