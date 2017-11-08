@@ -3,7 +3,15 @@ import config from './config/environment';
 
 const Router = Ember.Router.extend({
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL: config.rootURL,
+  poll: Ember.inject.service(),
+afterModel: function () {
+  this._super(...arguments);
+  this.get('poll').start({
+    idle_timeout: 10000,
+    interval: 2000,
+  });
+}
 });
 
 Router.map(function() {
@@ -13,5 +21,7 @@ Router.map(function() {
         this.route('/#', {path: 'home'});
   });
 });
+
+
 
 export default Router;
