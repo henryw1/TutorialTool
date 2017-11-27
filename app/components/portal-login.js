@@ -39,7 +39,8 @@ export default Ember.Component.extend({
           sesh.set('user', name);
           var newstudent = store.createRecord('student', {
             name: name,
-            answer: " ",
+              answer:"",             
+
           });
           newstudent.save();
           this.get('router').transitionTo('index');

@@ -5,10 +5,14 @@
 <!-- <a href="#collapseExample" class="dropdown-toggle btn btn-success btn-circle btn-lg" data-toogle="collapse" ></a> -->
 <div class="col-md-9 accordion">
   <div class="panel panel-card accordion-group collapse1" id="collapseq">
-    <div class="panel-heading accordion-heading">
+    <div class="panel-heading">
       <div class="row">
         <div class="col-xs-12">
-          <a href="#collapseOne" class="active accordion-toggle" data-toggle="collapse" data-parent="#accordion2" id="login-form-link">New Question</a>
+          <div class="input-group col-lg-12">
+            {{input type="text" name="title" id="title" tabindex="1" class="form-control" value=title placeholder="Question Title"}}
+            <span class="input-group-addon success"><span class="fa fa-font"></span></span>
+          </div>
+          <!-- <a href="#collapseOne" class="active accordion-toggle" data-toggle="collapse" data-parent="#accordion2" id="login-form-link">New Question</a> -->
         </div>
       </div>
       <hr>
@@ -16,7 +20,7 @@
     <div id="collapseOne" class="accordion-body collapse panel-body accordion-inner in" aria-expanded="true">
       <div class="row">
         <div class="col-lg-12">
-          {{ textarea name="question" id="question" class="form-control col-lg-12" value=question namestyle="resize:vertical" rows="5" }}
+          {{ textarea name="question" id="question" class="form-control col-lg-12" value=question namestyle="resize:vertical" rows="5" placeholder="New Question"}}
 
           <!-- <textarea class="form-control col-lg-12" name="quesion" id="question" namestyle="resize:vertical" id="comment" value=question rows="5"></textarea> -->
         </div>

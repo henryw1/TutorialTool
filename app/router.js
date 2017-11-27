@@ -9,7 +9,7 @@ afterModel: function () {
   this._super(...arguments);
   this.get('poll').start({
     idle_timeout: 10000,
-    interval: 2000,
+    interval: 20000,
   });
 }
 });
@@ -21,7 +21,4 @@ Router.map(function() {
         this.route('/#', {path: 'home'});
   });
 });
-
-
-
 export default Router;

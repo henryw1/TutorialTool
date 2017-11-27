@@ -7,7 +7,8 @@ export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
       student: this.store.findAll('student'),
-      lecturer: this.store.findAll('lecturer')
+      lecturer: this.store.findAll('lecturer'),
+      question:this.store.findAll('question')
     });
   },
 
@@ -15,5 +16,6 @@ export default Ember.Route.extend({
     this._super(...arguments);
     Ember.set(controller, 'student', model.student);
     Ember.set(controller, 'lecturer', model.lecturer);
+    Ember.set(controller, 'question', model.question);
   }
 });

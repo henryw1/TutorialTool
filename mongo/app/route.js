@@ -1,6 +1,7 @@
 
 var students = require('../api/student');
 var lecturers = require('../api/lecturer');
+var questions = require('../api/question');
 
 module.exports = function (router) {
 
@@ -17,11 +18,11 @@ module.exports = function (router) {
             .post(function (req, res) {
                 lecturers.addNote(req, res)
             });
-            router.route('/api/notes').get(function (req, res) {
-                    note.getAllNotes(req, res)
+            router.route('/api/questions').get(function (req, res) {
+                    questions.getAllNotes(req, res)
                 })
                 .post(function (req, res) {
-                    note.addNote(req, res)
+                    questions.addNote(req, res)
                 });
 
     /* Ruta de borrado (delete) y modificado (patch) */
@@ -44,4 +45,14 @@ module.exports = function (router) {
             .patch(function (req, res) {
                 students.saveNote(req, res)
             });
+
+            router.route('/api/questions/:question_id').get(function (req, res) {
+                    questions.getIdNote(req, res)
+                })
+                .delete(function (req, res) {
+                    questions.deleteNote(req, res)
+                })
+                .patch(function (req, res) {
+                    questions.saveNote(req, res)
+                });
 };
