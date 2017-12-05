@@ -2354,6 +2354,13 @@ ember-cli-is-package-missing@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ember-cli-is-package-missing/-/ember-cli-is-package-missing-1.0.0.tgz#6e6184cafb92635dd93ca6c946b104292d4e3390"
 
+ember-cli-js-cookie@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-js-cookie/-/ember-cli-js-cookie-0.1.1.tgz#f856f2ec78077181e3c4a998e6b07c5662aec106"
+  dependencies:
+    ember-cli-babel "^5.1.7"
+    js-cookie "^2.1.4"
+
 ember-cli-legacy-blueprints@^0.1.2:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/ember-cli-legacy-blueprints/-/ember-cli-legacy-blueprints-0.1.5.tgz#93c15ca242ec5107d62a8af7ec30f6ac538f3ad9"
@@ -2803,6 +2810,12 @@ ember-source@~2.13.0:
 ember-test-helpers@^0.6.3:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/ember-test-helpers/-/ember-test-helpers-0.6.3.tgz#f864cdf6f4e75f3f8768d6537785b5ab6e82d907"
+
+ember-toastr@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/ember-toastr/-/ember-toastr-1.7.0.tgz#74097611fe38c596b7ed6db4a2d00d47122cc8c7"
+  dependencies:
+    ember-cli-babel "^5.0.0"
 
 ember-truth-helpers@^2.0.0:
   version "2.0.0"
@@ -4203,6 +4216,10 @@ istextorbinary@2.1.0:
 jquery@^3.1.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
+
+js-cookie@^2.1.4:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-2.2.0.tgz#1b2c279a6eece380a12168b92485265b35b1effb"
 
 js-reporters@1.2.0:
   version "1.2.0"
@@ -6297,6 +6314,10 @@ to-array@0.1.4:
 to-fast-properties@^1.0.0, to-fast-properties@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-1.0.3.tgz#b83571fa4d8c25b82e231b06e3a3055de4ca1a47"
+
+toastr@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/toastr/-/toastr-2.1.2.tgz#fd69066ae7578a5b3357725fc9c7c335e9b681df"
 
 tough-cookie@~2.3.0:
   version "2.3.2"

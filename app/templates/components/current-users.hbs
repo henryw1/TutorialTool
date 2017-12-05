@@ -17,6 +17,18 @@
             <ul class="nav nav_ul navbar-nav col-lg-12">
               {{#each student as |item|}}
               <li class="dropdown col-lg-12">
+                <div class="btn-group btn-group-primary">
+   <button class="btn btn-primary" type="button">Primary</button>
+   <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button"><span class="caret"></span>
+   </button>
+   <ul class="dropdown-menu">
+     <li><a href="#">Action</a></li>
+     <li><a href="#">Another action</a></li>
+     <li><a href="#">Something else here</a></li>
+     <li class="divider"></li>
+     <li><a href="#">Separated link</a></li>
+   </ul>
+ </div>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{item.name}}<span class="glyphicon glyphicon-user pull-right"></span></a>
               </li>
               {{/each}}

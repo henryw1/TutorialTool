@@ -2,10 +2,10 @@
 mongoose = require('mongoose');
 /* Usaremos un modelo 'note' con tres campos strings */
 var noteSchema = new mongoose.Schema({
-	name: 'string',
-	answer: 'string',
-	id:'string',
-	question:{},
+	question: 'string',
+	student: 'string',
+	lecturer:"string",
+	answer:"string",
+	id:"string",
 });
-
-module.exports = mongoose.model('student',noteSchema);
+module.exports = mongoose.model('answer',noteSchema);

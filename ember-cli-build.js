@@ -43,7 +43,10 @@ module.exports = function(defaults) {
   app.import('bower_components/bootstrap/dist/js/bootstrap.js');
   app.import('bower_components/font-awesome/css/font-awesome.css');
   app.import('vendor/scrollreveal/scrollreveal.js');
-  app.import('vendor/magnific-popup/jquery.magnific-popup.js')
+  app.import('vendor/magnific-popup/jquery.magnific-popup.js');
+    app.import('vendor/toastr/toastr.scss');
+    app.import('vendor/toastr/toastr.js');
+
 
   var fontawesome = new funnel('bower_components/font-awesome/fonts', {
     srcDir: '/',

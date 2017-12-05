@@ -22,7 +22,26 @@
             <ul class="nav nav_ul navbar-nav col-lg-12">
               {{#each student as |item|}}
                 <li class="dropdown col-lg-12">
-                  <a href="#" class="dropdown-toggle" {{action 'ans' item}}>{{item.name}}<span class="glyphicon glyphicon-user pull-right"></span></a>
+
+                  <a href="#" class="dropdown-toggle" {{action 'ans' item}}>{{item.name}}
+                    <!-- <span class="glyphicon glyphicon-user pull-right"> -->
+                    <!-- <div class="btn-group btn-group-primary pull-right useroption"> -->
+                   	  <button data-toggle="dropdown" class="btn btn-sm  btn-primary dropdown-toggle useroption pull-right" type="button"><span class="glyphicon glyphicon-user pull-right"></span>
+                   	  </button>
+                      <ul class="dropdown-menu">
+                      <!-- <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
+                      <li class="divider"></li> -->
+                      <li><a href="#">View Answers <span class="glyphicon glyphicon-list pull-right"></span></a></li>
+                      <li class="divider"></li>
+                      <li><a href="#" {{action 'rmv' item}}>Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                    </ul>
+                     <!-- </div> -->
+                     <!-- </span> -->
+                    </a>
                 </li>
               {{/each}}
             </ul>
@@ -57,27 +76,38 @@
       </div>
     </div>
     {{else if sesh.isStudent}}
-    <div class="col-md-12 accordion">
-      <div class="panel panel-card accordion-group">
-        <div class="panel-heading accordion-heading">
-          <div class="row">
-            <div class="col-xs-12">
-              <a href="#collapse1" class="active accordion-toggle" data-toggle="collapse" data-parent="#accordion2" id="login-form-link">Question</a>
+    <ul class="timeline">
+          <li class="col-lg-12">
+            <div class="timeline-badge success col-sm-2"><i class="glyphicon glyphicon-check"></i></div>
+            <div class="timeline-panel col-lg-10">
+              <div class="timeline-heading">
+
+                {{#each lecturer as |q|}}
+                <h4 class="timeline-title">{{q.title}}</h4>
+                <!-- <div class="testimonial-section"> -->
+                  <p> {{q.question}} </p>
+              <!-- </div> -->
+                {{/each}}
+                <!-- <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago via Twitter</small></p> -->
+              </div>
+              <div class="timeline-body">
+
+              </div>
             </div>
-          </div>
-          <hr>
-        </div>
-        <div id="collapse1" class="accordion-body collapse panel-body accordion-inner in" aria-expanded="true">
-          <div class="row">
-            <div class="col-lg-12">
-              {{#each lecturer as |q|}}
-                <textarea class="form-control col-lg-12" style="resize:vertical" id="comment" rows="5" disabled> {{q.question}}</textarea>
-              {{/each}}
+          </li>
+          <!-- <li>
+            <div class="timeline-badge danger"><i class="glyphicon glyphicon-credit-card"></i></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </li> -->
+        </ul>
+
     <!-- <div class="col-lg-12">
           <div id="tb-testimonial" class="testimonial testimonial-success-filled">
               <div class="testimonial-section">
@@ -91,8 +121,8 @@
 
     {{answer-area}}
     {{else}}
-    <div class="loading col-lg-12" id="loading">
-      <div class="row">
+    <!-- <div class="loading col-lg-12" id="loading"> -->
+      <!-- <div class="row">
     <h3>WE ARE</h3>
 <b>
   <span1>
@@ -103,13 +133,63 @@
     part of the problem
     </span1>
 </b>
-</div>
-<div class="row log">
+</div> -->
+<!-- <div class="row log">
   <h3>Please Login To Continue</h3>
   <button class="btn btn-md"data-toggle="snackbar" data-style="toast" tabindex="1" {{action 'toLogin'}} class="form-control btn btn-login" type="submit">Login</button>
 
+</div> -->
+<div class="carousel fade-carousel slide carousel-fade" data-ride="carousel" data-interval="4000" id="bs-carousel">
+  <!-- Overlay -->
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#bs-carousel" data-slide-to="1"></li>
+    <li data-target="#bs-carousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item slides active">
+      <div class="slide-1">
+          <div class="overlay"></div>
+      </div>
+      <div class="hero">
+        <hgroup>
+            <h1>We are creative</h1>
+            <h3>Get start your next awesome project</h3>
+        </hgroup>
+        <button class="btn btn-md"data-toggle="snackbar" data-style="toast" tabindex="1" {{action 'toLogin'}} class="form-control btn btn-login" type="submit">Login</button>
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-2">
+          <div class="overlay"></div>
+      </div>
+      <div class="hero">
+        <hgroup>
+            <h1>We are smart</h1>
+            <h3>Get start your next awesome project</h3>
+        </hgroup>
+        <button class="btn btn-md"data-toggle="snackbar" data-style="toast" tabindex="1" {{action 'toLogin'}} class="form-control btn btn-login" type="submit">Login</button>
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-3">
+          <div class="overlay"></div>
+      </div>
+      <div class="hero">
+        <hgroup>
+            <h1>We are amazing</h1>
+            <h3>Get start your next awesome project</h3>
+        </hgroup>
+        <button class="btn btn-md"data-toggle="snackbar" data-style="toast" tabindex="1" {{action 'toLogin'}} class="form-control btn btn-login" type="submit">Login</button>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
+<!-- </div> -->
 
     {{/if}}
   </div>

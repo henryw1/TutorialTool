@@ -7,21 +7,46 @@ export default Ember.Component.extend({
     const store = this.get('store');
     return store.peekAll('student');
   }).volatile(),
+  ans: Ember.computed(function(){
+    const store = this.get('store');
+    return store.peekAll('answer');
+  }).volatile(),
+  lect: Ember.computed(function() {
+    const store = this.get('store');
+    return store.peekAll('lecturer');
+  }).volatile(),
+
 actions: {
         answer: function () {
           debugger;
+          var session = this.get("sesh");
+          var lecturer = this.get("lect").findBy("session", session.key);
+          var lecID = lecturer.id;
+          var question= lecturer.get("question");
           var student =this.get("stud");
           var name = this.get("sesh").get('user');
           var Cstudent = student.findBy('name', name);
           var id = Cstudent.id;
-          var answer = this.get("answer");
+          var newanswer = this.get("answer");
           var store = this.get("store");
-          store.findRecord('student',id).then(function(student) {
+          var answer =this.get("ans");
+          if(newanswer){
+          store.findRecord('student', id).then(function(student) {
             student.get('answer');  //=> "Rails is Omakase"
-            student.set('answer', answer);
+            student.set('answer', newanswer);
             student.save(); //=> PATCH to '/posts/1'
           });
-
+          var Nanswer = store.createRecord('answer', {
+            question:question,
+            student:id,
+            answer: newanswer,
+            lecturer: lecID,
+          });
+          Nanswer.save();
+          toastr.success("Answer submitted");
+        }else{
+          toastr.warning("Answwer must be provided");
+        }
         }
 
     }

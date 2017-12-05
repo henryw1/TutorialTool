@@ -14,7 +14,7 @@ export default Ember.Component.extend({
 
   actions: {
     authenticate() {
-      debugger;
+      debugger;      
       var store = this.get("store");
       var sesh = this.get("session");
       var dat = this.get("lect");
@@ -37,9 +37,11 @@ export default Ember.Component.extend({
         if (key.session === password) {
           sesh.set('isAuthenticated', true);
           sesh.set('user', name);
+          debugger;
+          sesh.set('key', key.session);
           var newstudent = store.createRecord('student', {
             name: name,
-              answer:"",             
+              answer:"",
 
           });
           newstudent.save();

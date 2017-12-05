@@ -42,6 +42,9 @@ Ember.$(function () {
 actions: {
         NewQuestion: function () {
           debugger;
+          toastr.options={
+            'progressBar':false,
+          }
           var _id = this.get("sesh").get('_id');
           var newquestion = this.get("question");
           var title = this.get("title");
@@ -49,30 +52,26 @@ actions: {
           var lecturer =this.get("sesh").get('user');
           var index =0;
           var student = this.get("stud");
-          // buffer: function(title, index){
-          //   var content = question.content
-          //   for (var i = 0, i<content.length; i++)
-          //   {
-          //     if(content[i].__data.title===title){
-          //       index = index+1;
-          //     title = title + data ;
-          //     return title;
-          //     this.set('index', index);
-          //     }
-          //   }
-          //
-          // }
           var store = this.get("store");
-          //debugger;
+          if (title && newquestion){
           var newQ = store.createRecord('question', {
             title: title,
             lecturer:lecturer,
             question:newquestion,
           });
           newQ.save();
-          //for (var i = 0; i<)
-
-
+          store.findRecord('lecturer', _id).then(function(lecturer){
+            debugger;
+            lecturer.get("question");
+            lecturer.get("title");
+            lecturer.set("question", newquestion);
+            lecturer.set("title", title);
+            lecturer.save();
+          });
+          toastr.success("Question added");
+        }else{
+          toastr.warning("question title and question must be added")
+        }
         }
 
     }

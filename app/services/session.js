@@ -8,5 +8,6 @@ export default Ember.Service.extend({
   _id:null,
 isLecturer:false,
 isStudent:false,
-answer:null, 
+answer:null,
+key:null,
 });

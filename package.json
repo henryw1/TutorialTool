@@ -29,6 +29,7 @@
     "ember-cli-htmlbars": "^1.1.1",
     "ember-cli-htmlbars-inline-precompile": "^0.4.0",
     "ember-cli-inject-live-reload": "^1.4.1",
+    "ember-cli-js-cookie": "^0.1.1",
     "ember-cli-less": "^1.5.4",
     "ember-cli-moment-shim": "^3.5.0",
     "ember-cli-poll": "^0.1.0",
@@ -44,16 +45,21 @@
     "ember-simple-auth": "^1.4.0",
     "ember-simple-auth-token": "^2.1.0",
     "ember-source": "~2.13.0",
+    "ember-toastr": "^1.7.0",
     "ember-truth-helpers": "^2.0.0",
     "ember-welcome-page": "^3.0.0",
     "express": "^4.16.2",
     "glob": "^4.5.3",
     "loader.js": "^4.2.3",
     "mongoose": "^4.12.3",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "toastr": "^2.1.2"
   },
   "engines": {
     "node": ">= 4"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "toastr": "^2.1.2"
+  }
 }

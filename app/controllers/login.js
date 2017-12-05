@@ -3,6 +3,8 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
   store: Ember.inject.service(),
+  toast: Ember.inject.service(),
+  // toast:Ember.inject.service(),
   //mongo: Ember.inject.service('mongo-db'),
   lect: Ember.computed(function() {
     const store = this.get('store');
@@ -17,6 +19,9 @@ export default Ember.Controller.extend({
 
   actions: {
     authenticate() {
+      toastr.options={
+        'progressBar':false,
+      }
 
       //var store = this.get("store");
       var session = this.get("session");
@@ -34,9 +39,12 @@ export default Ember.Controller.extend({
           session.set('user', email);
           session.set('_id', lecturer._id)
           //this.get('router').transitionTo('index');
+          var toast = this.get('toast');
+          toastr.success('Login Succesfull');
           this.transitionToRoute('index');
         } else {
-          console.log("dont enter");
+          this.set("haserror", "has-error");
+          toastr.warning('Login Error');
         }
       } else if (student1) {
         var key = student1.data;
@@ -44,6 +52,7 @@ export default Ember.Controller.extend({
           session.set('isStudent',true);
           session.set('isAuthenticated', true);
           session.set('user', email);
+          session.set('key', key.session);
           var student = this.store.createRecord('student', {
             name: email,
             answer: " ",
@@ -51,10 +60,12 @@ export default Ember.Controller.extend({
           student.save();
           this.transitionToRoute('index');
         } else {
-          console.log("dont enter");
-        }
+          this.set("haserror", "has-error");
+          toastr.warning('Login Error');
+                  }
       } else {
-        console.log("dont enter");
+        this.set("haserror", "has-error");
+        toastr.warning('Login Error');
       }
     },
     // save:() {

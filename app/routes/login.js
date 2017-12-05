@@ -7,7 +7,9 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       student: this.store.findAll('student'),
       lecturer: this.store.findAll('lecturer'),
-      question: this.store.findAll('question')
+      question: this.store.findAll('question'),
+      answer: this.store.findAll('answer')
+
     });
   },
 
@@ -16,5 +18,6 @@ export default Ember.Route.extend({
     Ember.set(controller, 'student', model.student);
     Ember.set(controller, 'lecturer', model.lecturer);
     Ember.set(controller,'question', model.question);
+    Ember.set(controller, 'answer', model.answer);
   }
 });

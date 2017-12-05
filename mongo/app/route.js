@@ -2,6 +2,7 @@
 var students = require('../api/student');
 var lecturers = require('../api/lecturer');
 var questions = require('../api/question');
+var answers = require('../api/answer');
 
 module.exports = function (router) {
 
@@ -18,12 +19,19 @@ module.exports = function (router) {
             .post(function (req, res) {
                 lecturers.addNote(req, res)
             });
-            router.route('/api/questions').get(function (req, res) {
-                    questions.getAllNotes(req, res)
-                })
-                .post(function (req, res) {
-                    questions.addNote(req, res)
-                });
+      router.route('/api/questions').get(function (req, res) {
+              questions.getAllNotes(req, res)
+          })
+          .post(function (req, res) {
+              questions.addNote(req, res)
+          });
+      router.route('/api/answers').get(function (req, res) {
+              answers.getAllNotes(req, res)
+          })
+          .post(function (req, res) {
+              answers.addNote(req, res)
+          });
+
 
     /* Ruta de borrado (delete) y modificado (patch) */
     router.route('/api/lecturers/:lecturer_id').get(function (req, res) {
@@ -46,6 +54,7 @@ module.exports = function (router) {
                 students.saveNote(req, res)
             });
 
+
             router.route('/api/questions/:question_id').get(function (req, res) {
                     questions.getIdNote(req, res)
                 })
@@ -54,5 +63,14 @@ module.exports = function (router) {
                 })
                 .patch(function (req, res) {
                     questions.saveNote(req, res)
+                });
+            router.route('/api/students/:answer_id').get(function (req, res) {
+                    answers.getIdNote(req, res)
+                })
+                .delete(function (req, res) {
+                    answers.deleteNote(req, res)
+                })
+                .patch(function (req, res) {
+                    answers.saveNote(req, res)
                 });
 };
