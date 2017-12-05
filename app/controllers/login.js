@@ -22,7 +22,6 @@ export default Ember.Controller.extend({
       toastr.options={
         'progressBar':false,
       }
-
       //var store = this.get("store");
       var session = this.get("session");
       var dat = this.get("lect");
@@ -47,14 +46,25 @@ export default Ember.Controller.extend({
           toastr.warning('Login Error');
         }
       } else if (student1) {
+        var stud = this.get("stud").content;
+        var index = 0;
+        var newname = email;
+          for (var i = 0; i < stud.length; i++){
+            if(stud[i].__data.name === newname){
+            index = index + 1;
+            newname = email + "-0" + index;
+            i=0;
+          }
+          }
         var key = student1.data;
         if (key.session === password) {
           session.set('isStudent',true);
           session.set('isAuthenticated', true);
-          session.set('user', email);
+          session.set('user', newname);
           session.set('key', key.session);
+          debugger;
           var student = this.store.createRecord('student', {
-            name: email,
+            name: newname,
             answer: " ",
           });
           student.save();

@@ -13,15 +13,11 @@ export default Ember.Component.extend({
     return store.peekAll('student');
 
   }).volatile(),
-  //classNames: ['btn', 'btn-lg', 'btn-circle'],
-  //tagName: 'a',
-  //  attributeBindings: ['url:href'],
   didInsertElement() {
   this._super(...arguments);
 Ember.$('a.button1').on('click', function(){
 Ember.$(' a.button1').toggleClass('active');
 Ember.$(' .collapse1').toggleClass('collapse');
-
 return false;
 });
 Ember.$('a.button2').on('click', function(){
@@ -36,8 +32,6 @@ Ember.$('.fab').hover(function () {
 Ember.$(function () {
   Ember.$('[data-toggle="tooltip"]').tooltip()
 })
-
-
 },
 actions: {
         NewQuestion: function () {
@@ -50,12 +44,21 @@ actions: {
           var title = this.get("title");
           var question = this.get("quest")
           var lecturer =this.get("sesh").get('user');
-          var index =0;
           var student = this.get("stud");
           var store = this.get("store");
           if (title && newquestion){
+            var q = this.get("quest").content;
+            var index = 0;
+            var newtitle = title;
+              for (var i = 0; i < q.length; i++){
+                if(q[i].__data.title === newtitle){
+                index = index + 1;
+                newtitle = title + "-0" + index;
+                i=0;
+              }
+              }
           var newQ = store.createRecord('question', {
-            title: title,
+            title: newtitle,
             lecturer:lecturer,
             question:newquestion,
           });
