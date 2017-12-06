@@ -33,8 +33,7 @@ Ember.$(function () {
   Ember.$('[data-toggle="tooltip"]').tooltip()
 });
 
-Ember.$('#fontSize').on("keyup",function() {
-
+Ember.$('#fontSize').on("keyup", function() {  
 	    	Ember.$('#question').css('font-size', Ember.$(this).val()+'px');
 		});
 },

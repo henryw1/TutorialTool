@@ -9,7 +9,6 @@ export default Ember.Controller.extend({
   lect: Ember.computed(function() {
     const store = this.get('store');
     return store.peekAll('lecturer');
-
   }).volatile(),
   stud: Ember.computed(function() {
     const store = this.get('store');
