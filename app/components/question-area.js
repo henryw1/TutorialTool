@@ -31,7 +31,12 @@ Ember.$('.fab').hover(function () {
 });
 Ember.$(function () {
   Ember.$('[data-toggle="tooltip"]').tooltip()
-})
+});
+
+Ember.$('#fontSize').on("keyup",function() {
+
+	    	Ember.$('#question').css('font-size', Ember.$(this).val()+'px');
+		});
 },
 actions: {
         NewQuestion: function () {
@@ -64,7 +69,7 @@ actions: {
           });
           newQ.save();
           store.findRecord('lecturer', _id).then(function(lecturer){
-            debugger;
+            // debugger;
             lecturer.get("question");
             lecturer.get("title");
             lecturer.set("question", newquestion);
@@ -75,7 +80,12 @@ actions: {
         }else{
           toastr.warning("question title and question must be added")
         }
-        }
+        },
+         size(output){
+           // debugger;
+           var fsize = this.get("rangeSuccess");
+         }
+
 
     }
 });

@@ -60,6 +60,5 @@ export default Ember.Component.extend({
         toastr.warning("Answwer must be provided");
       }
     }
-
   }
 });
