@@ -34,7 +34,7 @@
                       <li class="divider"></li>
                       <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
                       <li class="divider"></li> -->
-                      <li><a href="#">View Answers <span class="glyphicon glyphicon-list pull-right"></span></a></li>
+                      <li><a href="#" {{action 'all'}}>View Answers <span class="glyphicon glyphicon-list pull-right"></span></a></li>
                       <li class="divider"></li>
                       <li><a href="#" {{action 'rmv' item}}>Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
                   </ul>
@@ -43,6 +43,7 @@
                   </a>
                   </li>
                   {{/each}}
+
                   </ul>
                 </div>
               </div>
@@ -51,6 +52,7 @@
         {{/if}}
       </div>
       <!-- ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt -->
+      {{#if sesh.nall}}
       {{question-area}}
 
       <!-- ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt -->
@@ -77,8 +79,25 @@
         </div>
       </div>
       {{yield}}
-      {{#each answer as |ans|}}
+      {{else}}
       <div class="col-lg-9 col-offset-3 allans">
+        <div id="integration-list">
+          <ul>
+            <li>
+              <!-- <a class="expand"> -->
+              <button id="expand" class="btn btn-lg  dropdown-toggle useroption pull-left " type="button" {{action 'all'}}>
+               <span class="backar fa fa-arrow-left"></span>
+             </button>
+                      <div class="right-arrow">x</div>
+                      <!-- <div>
+                          <h2>This is the title</h2>
+                          <span>{{ans.question}}</span>
+                      </div>
+                  </a> -->
+              </li>
+          </ul>
+          </div>
+      {{#each answer as |ans|}}
         <div id="integration-list">
           <ul>
             <li>
@@ -108,10 +127,11 @@
             </li>
           </ul>
           </div>
-      </div>
-      {{/each}}
-      {{all-answers}}
 
+      {{/each}}
+      </div>
+      {{all-answers}}
+{{/if}}
       {{else if sesh.isStudent}}
       <ul class="timeline">
         <li class="col-lg-12">

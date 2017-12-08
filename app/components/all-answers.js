@@ -9,7 +9,7 @@ export default Ember.Component.extend({
     var expand = Ember.$(this).find(">:first-child");
 
     if(expand.text() == "+") {
-      expand.text("X");
+      expand.text("_");
     } else {
       expand.text("+");
     }

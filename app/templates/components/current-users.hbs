@@ -1,40 +1,27 @@
 {{yield}}
   <div class="col-md-3 accordion">
-    {{control-panel}}
-    <div class="panel panel-card accordion-group">
-      <div class="panel-heading accordion-heading clickable">
-        <div class="row">
-          <div class="col-xs-12">
-            <a href="#collapseTwo" class="accordion-toggle active " data-toggle="collapse" data-parent="#accordion2" id="login-form-link">Current Users</a>
-          </div>
+    {{#each student as |item|}}
+      <li class="dropdown col-lg-12">
 
-        </div>
-        <hr>
-      </div>
-      <div id="collapseTwo" class="panel-body accordion-inner accordion-body collapse in">
-        <div class="row">
-          <div class="col-lg-12">
-            <ul class="nav nav_ul navbar-nav col-lg-12">
-              {{#each student as |item|}}
-              <li class="dropdown col-lg-12">
-                <div class="btn-group btn-group-primary">
-   <button class="btn btn-primary" type="button">Primary</button>
-   <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button"><span class="caret"></span>
-   </button>
-   <ul class="dropdown-menu">
-     <li><a href="#">Action</a></li>
-     <li><a href="#">Another action</a></li>
-     <li><a href="#">Something else here</a></li>
-     <li class="divider"></li>
-     <li><a href="#">Separated link</a></li>
-   </ul>
- </div>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{item.name}}<span class="glyphicon glyphicon-user pull-right"></span></a>
-              </li>
-              {{/each}}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+        <a href="#" class="dropdown-toggle" {{action 'ans' item}}>{{item.name}}
+    <!-- <span class="glyphicon glyphicon-user pull-right"> -->
+    <!-- <div class="btn-group btn-group-primary pull-right useroption"> -->
+      <button data-toggle="dropdown" class="btn btn-sm  btn-primary dropdown-toggle useroption pull-right" type="button"><span class="glyphicon glyphicon-user pull-right"></span>
+      </button>
+      <ul class="dropdown-menu">
+      <!-- <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+      <li class="divider"></li>
+      <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
+      <li class="divider"></li>
+      <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
+      <li class="divider"></li> -->
+      <li><a href="#" {{action 'all'}}>View Answers <span class="glyphicon glyphicon-list pull-right"></span></a></li>
+      <li class="divider"></li>
+      <li><a href="#" {{action 'rmv' item}}>Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+  </ul>
+  <!-- </div> -->
+  <!-- </span> -->
+  </a>
+  </li>
+  {{/each}}
   </div>

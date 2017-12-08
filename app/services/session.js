@@ -11,4 +11,5 @@ isStudent:false,
 answer:null,
 key:null,
 isFull:true,
+nall:true,
 });
