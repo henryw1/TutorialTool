@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
     authenticate() {
       toastr.options={
         'progressBar':false,
-      }
+      }    
       //var store = this.get("store");
       var session = this.get("session");
       var dat = this.get("lect");

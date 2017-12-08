@@ -26,28 +26,42 @@ Ember.$(' .collapse2').toggleClass('collapse');
 
 return false;
 });
+Ember.$('#expand').on('click', function(){
+  Ember.$('.qarea').removeClass('col-lg-9');
+  Ember.$('.qarea').toggleClass('col-lg-12');
+  Ember.$('#contract').removeClass('hidden');
+  Ember.$('#expand').toggleClass('hidden');
+});
+Ember.$('#contract').on('click', function(){
+  Ember.$('.qarea').toggleClass('col-lg-9');
+  Ember.$('.qarea').removeClass('col-lg-12');
+  Ember.$('#contract').toggleClass('hidden');
+  Ember.$('#expand').removeClass('hidden');
+});
 Ember.$('.fab').hover(function () {
     //Ember.$(this).toggleClass('active');
 });
 Ember.$(function () {
   Ember.$('[data-toggle="tooltip"]').tooltip()
 });
+Ember.$('#fontSize').on("keyup",function() {
 
-Ember.$('#fontSize').on("keyup", function() {  
 	    	Ember.$('#question').css('font-size', Ember.$(this).val()+'px');
 		});
+
 },
 actions: {
         NewQuestion: function () {
+          var session = this.get("sesh");
           debugger;
           toastr.options={
             'progressBar':false,
           }
-          var _id = this.get("sesh").get('_id');
+          var _id = session.get('_id');
           var newquestion = this.get("question");
           var title = this.get("title");
           var question = this.get("quest")
-          var lecturer =this.get("sesh").get('user');
+          var lecturer =session.get('user');
           var student = this.get("stud");
           var store = this.get("store");
           if (title && newquestion){
@@ -83,6 +97,15 @@ actions: {
          size(output){
            // debugger;
            var fsize = this.get("rangeSuccess");
+         },
+         expand(){
+           var session = this.get("sesh");
+          var xpd = session.get("isFull");
+          if(xpd === true){
+            session.set("isFull", false);
+          }else{
+            session.set("isFull", true);
+          }
          }
 
 

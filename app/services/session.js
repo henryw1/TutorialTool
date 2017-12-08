@@ -10,4 +10,5 @@ isLecturer:false,
 isStudent:false,
 answer:null,
 key:null,
+isFull:true,
 });

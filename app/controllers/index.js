@@ -14,7 +14,24 @@ export default Ember.Controller.extend({
       resource_name: 'students', // a resource name
       url: `http://localhost:4500/api/students/${student_id}` // url to fetch resource
     });
+    },
+    didInsertElement(){
+    this._super(...arguments);
+    Ember.$(function() {
+    Ember.$(".expand").on( "click", function() {
+      Ember.$(this).next().slideToggle(200);
+      var expand = Ember.$(this).find(">:first-child");
+  debugger;
+      if(expand.text() == "+") {
+        expand.text("X");
+      } else {
+        expand.text("+");
+      }
+    });
+  });
   },
+
+
 actions: {
         toLogin: function () {
           this.transitionToRoute('login');
