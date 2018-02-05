@@ -1,11 +1,10 @@
 /* eslint-env node */
-
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'poppies-com',
     environment: environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -22,7 +21,7 @@ module.exports = function(environment) {
       // when it is created
     },
     contentSecurityPolicy: {
-     'connect-src' : "'self' http://localhost:4500"
+     'connect-src' : "'self' http://localhost:4500/"
    }
   };
 

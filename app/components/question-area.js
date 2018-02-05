@@ -23,7 +23,6 @@ return false;
 Ember.$('a.button2').on('click', function(){
 Ember.$(' a.button2').toggleClass('active');
 Ember.$(' .collapse2').toggleClass('collapse');
-
 return false;
 });
 Ember.$('#expand').on('click', function(){
