@@ -22,9 +22,10 @@ export default Ember.Route.extend({
   //   this._super(controller, model); // do the default implementation since I'm overriding this func
   //   this.startRefreshing();
   // },
+  
   startRefreshing: function(){
     this.set('refreshing', true);
-    Em.run.later(this, this.refresh, 30000);
+    Em.run.later(this, this.refresh, 3000);
   },
   refresh: function(){
     if(!this.get('refreshing'))
@@ -33,8 +34,9 @@ export default Ember.Route.extend({
     this.store.findAll('lecturer');
     this.store.findAll('answer');
     this.store.findAll("question");
-    Em.run.later(this, this.refresh, 30000);
+    Em.run.later(this, this.refresh, 3000);
   },
+
   actions:{
     willTransition: function(){
       this.set('refreshing', false);

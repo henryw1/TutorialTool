@@ -5,7 +5,8 @@ var noteSchema = new mongoose.Schema({
 	name: 'string',
 	answer: 'string',
 	id:'string',
-	question:{},
+	newans:'string',
+	//question:{},
 });
 
 module.exports = mongoose.model('student',noteSchema);

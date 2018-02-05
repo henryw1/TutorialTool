@@ -15,7 +15,45 @@ export default Ember.Controller.extend({
       url: `http://localhost:4500/api/students/${student_id}` // url to fetch resource
     });
   },
+  didInsertElement() {
+  this._super(...arguments);
+Ember.$('a.button1').on('click', function(){
+Ember.$(' a.button1').toggleClass('active');
+Ember.$(' .collapse1').toggleClass('collapse');
+return false;
+});
+Ember.$('a.button2').on('click', function(){
+Ember.$(' a.button2').toggleClass('active');
+Ember.$(' .collapse2').toggleClass('collapse');
 
+return false;
+});
+Ember.$('#expand').on('click', function(){
+  debugger;
+  Ember.$('.ans').removeClass('col-lg-9');
+  Ember.$('.ans').toggleClass('col-lg-12');
+  Ember.$('#contract').removeClass('hidden');
+  Ember.$('#expand').toggleClass('hidden');
+});
+Ember.$('#contract').on('click', function(){
+  debugger;
+  Ember.$('.ans').toggleClass('col-lg-9');
+  Ember.$('.ans').removeClass('col-lg-12');
+  Ember.$('#contract').toggleClass('hidden');
+  Ember.$('#expand').removeClass('hidden');
+});
+Ember.$('.fab').hover(function () {
+    //Ember.$(this).toggleClass('active');
+});
+Ember.$(function () {
+  Ember.$('[data-toggle="tooltip"]').tooltip()
+});
+Ember.$('#fontSize').on("keyup",function() {
+
+	    	Ember.$('#question').css('font-size', Ember.$(this).val()+'px');
+		});
+
+},
   actions: {
     toLogin: function() {
       this.transitionToRoute('login');
@@ -47,5 +85,14 @@ export default Ember.Controller.extend({
       this._super(transition);
       this.get('poll').removePoll('contactsPoll'); // remove the resource from polling
     },
+    expand(){
+      var session = this.get("sesh");
+     var xpd = session.get("isFull");
+     if(xpd === true){
+       session.set("isFull", false);
+     }else{
+       session.set("isFull", true);
+     }
+    }
   }
 })

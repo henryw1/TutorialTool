@@ -38,7 +38,7 @@
                 <div class="col-lg-12">
                   <ul class="nav nav_ul navbar-nav col-lg-12">
                     {{#each student as |item|}}
-                      <li class="dropdown col-lg-12">
+                      <li class="dropdown col-lg-12 notif">
 
                         <a href="#" class="dropdown-toggle" {{action 'ans' item}}>{{item.name}}
                     <!-- <span class="glyphicon glyphicon-user pull-right"> -->
@@ -75,7 +75,7 @@
 
       <!-- ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt -->
 
-      <div class="col-md-9 ans">
+      <div class="col-md-9 col-md-offset-3 ans">
         <a href="#collapseExample" data-toggle="tooltip" data-placement="right" title="Answer" class="dropdown-toggle  button2 btn btn-success btn-circle btn-lg " alt="New Quesstion"> <i class="fa fa-times"></i></a>
 
         <div class="panel panel-card collapse2" id="collapseExample">
@@ -83,7 +83,16 @@
             <div class="row">
               <div class="col-xs-12">
                 <a href="#" class="active" id="login-form-link">{{item.name}} answer</a>
+              <!-- <div class="col-xs-6"> -->
+                <button id="expand" class="btn btn-lg  dropdown-toggle useroption pull-right" type="button" {{action 'expand'}}>
+                 <span class="fa fa-expand"></span>
+               </button>
+               <button id="contract" class="contract hidden btn btn-lg  dropdown-toggle useroption pull-right" type="button" {{action 'expand'}}>
+                 <span class="fa fa-compress"></span>
+               </button>
+              <!-- </div> -->
               </div>
+
             </div>
             <hr>
           </div>
@@ -258,7 +267,7 @@
             </div>
             <div class="hero">
               <hgroup>
-                <h2>Collaborative Tutorial Tool</h2>
+                <h1>Collaborative Tutorial Tool</h1>
                 <h3>Please log in to continue</h3>
               </hgroup>
               <button class="btn btn-md" data-toggle="snackbar" data-style="toast" tabindex="1" {{action 'toLogin'}} class="form-control btn btn-login" type="submit">Login</button>

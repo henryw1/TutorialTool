@@ -46,6 +46,7 @@ export default Ember.Component.extend({
         store.findRecord('student', id).then(function(student) {
           student.get('answer'); //=> "Rails is Omakase"
           student.set('answer', newanswer);
+          student.set('newans', true)
           student.save(); //=> PATCH to '/posts/1'
         });
         var Nanswer = store.createRecord('answer', {

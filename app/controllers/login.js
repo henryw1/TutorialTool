@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
     authenticate() {
       toastr.options={
         'progressBar':false,
-      }    
+      }
       //var store = this.get("store");
       var session = this.get("session");
       var dat = this.get("lect");
@@ -57,6 +57,7 @@ export default Ember.Controller.extend({
           }
         var key = student1.data;
         if (key.session === password) {
+          debugger;
           session.set('isStudent',true);
           session.set('isAuthenticated', true);
           session.set('user', newname);
@@ -65,6 +66,7 @@ export default Ember.Controller.extend({
           var student = this.store.createRecord('student', {
             name: newname,
             answer: " ",
+            newans: " ",
           });
           student.save();
           this.transitionToRoute('index');

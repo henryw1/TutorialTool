@@ -14,7 +14,7 @@ export default Ember.Component.extend({
 
   actions: {
     authenticate() {
-      debugger;      
+      debugger;
       var store = this.get("store");
       var sesh = this.get("session");
       var dat = this.get("lect");
@@ -41,9 +41,7 @@ export default Ember.Component.extend({
           sesh.set('key', key.session);
           var newstudent = store.createRecord('student', {
             name: name,
-              answer:"",
-
-          });
+                      });
           newstudent.save();
           this.get('router').transitionTo('index');
         } else {
