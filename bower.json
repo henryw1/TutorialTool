@@ -3,6 +3,7 @@
   "dependencies": {
     "ember-qunit-notifications": "0.1.0",
     "bootstrap": "^3.3.7",
-    "font-awesome": "fontawesome#^4.7.0"
+    "font-awesome": "fontawesome#^4.7.0",
+    "seiyria-bootstrap-slider": "~6.0.6"
   }
 }

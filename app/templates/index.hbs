@@ -1,22 +1,17 @@
 <div class="col-lg-12 col-sm-12">
   {{#if sesh.isAuthenticated}}
-  <div id="integration-list">
-    <ul>
-      <li>
-        <!-- <a class="expand"> -->
-        <button id="logout" class="btn btn-lg  logout dropdown-toggle useroption pull-right " type="button" {{action 'logout'}}>
+    <div id="integration-list">
+      <ul>
+        <li>
+          <h2> Collaborative Tutorial Tool
+          <button id="logout" class="btn btn-lg  logout dropdown-toggle useroption pull-right " type="button" {{action 'logout'}}>
          <span class="backar fa fa-sign-out"></span>
        </button>
-
-                <!-- <div>
-                    <h2>This is the title</h2>
-                    <span>{{ans.question}}</span>
-                </div>
-            </a> -->
+       </h2>
         </li>
-    </ul>
+      </ul>
     </div>
-    {{/if}}
+  {{/if}}
   <div class="row cards">
     {{yield}}
     {{#if sesh.isLecturer}}
@@ -39,25 +34,15 @@
                   <ul class="nav nav_ul navbar-nav col-lg-12">
                     {{#each student as |item|}}
                       <li class="dropdown col-lg-12 notif">
-
                         <a href="#" class="dropdown-toggle" {{action 'ans' item}}>{{item.name}}
-                    <!-- <span class="glyphicon glyphicon-user pull-right"> -->
-                    <!-- <div class="btn-group btn-group-primary pull-right useroption"> -->
-                   	  <button data-toggle="dropdown" class="btn btn-sm  btn-primary dropdown-toggle useroption pull-right" type="button"><span class="glyphicon glyphicon-user pull-right"></span>
+                   	  <button data-toggle="dropdown" class="btn btn-sm  btn-primary dropdown-toggle useroption pull-right" type="button">
+                        <span class="glyphicon glyphicon-user pull-right"></span>
                    	  </button>
                       <ul class="dropdown-menu">
-                      <!-- <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
-                      <li class="divider"></li>
-                      <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
-                      <li class="divider"></li>
-                      <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
-                      <li class="divider"></li> -->
-                      <li><a href="#" {{action 'all'}}>View Answers <span class="glyphicon glyphicon-list pull-right"></span></a></li>
+                        <li><a href="#" {{action 'all'}}>View Answers <span class="glyphicon glyphicon-list pull-right"></span></a></li>
                       <li class="divider"></li>
                       <li><a href="#" {{action 'rmv' item}}>Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
                   </ul>
-                  <!-- </div> -->
-                  <!-- </span> -->
                   </a>
                   </li>
                   {{/each}}
@@ -71,94 +56,91 @@
       </div>
       <!-- ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt -->
       {{#if sesh.nall}}
-      {{question-area}}
+        {{question-area}}
+        <!-- ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt -->
 
-      <!-- ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt -->
+        <div class="col-md-9 col-sm-9 ansa">
+          <a href="#collapseExample" data-toggle="tooltip" data-placement="right" title="Answer" class="dropdown-toggle  button2 btn btn-success btn-circle btn-lg " alt="New Quesstion"> <i class="fa fa-times"></i></a>
 
-      <div class="col-md-9 col-md-offset-3 ans">
-        <a href="#collapseExample" data-toggle="tooltip" data-placement="right" title="Answer" class="dropdown-toggle  button2 btn btn-success btn-circle btn-lg " alt="New Quesstion"> <i class="fa fa-times"></i></a>
-
-        <div class="panel panel-card collapse2" id="collapseExample">
-          <div class="panel-heading">
-            <div class="row">
-              <div class="col-xs-12">
-                <a href="#" class="active" id="login-form-link">{{item.name}} answer</a>
-              <!-- <div class="col-xs-6"> -->
-                <button id="expand" class="btn btn-lg  dropdown-toggle useroption pull-right" type="button" {{action 'expand'}}>
-                 <span class="fa fa-expand"></span>
-               </button>
-               <button id="contract" class="contract hidden btn btn-lg  dropdown-toggle useroption pull-right" type="button" {{action 'expand'}}>
-                 <span class="fa fa-compress"></span>
-               </button>
-              <!-- </div> -->
+          <div class="panel panel-card collapse2" id="collapseExample">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="col-xs-6 price-slider">
+                    <div class="col-md-4">
+                      <input id="fontSizes" type="text" value="18" name="fontSize" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-xs-6">
+                  <a href="#" class="active" id="login-form-link">{{sesh.name}} answer</a>
+                </div>
+                </div>
               </div>
-
+              <hr>
             </div>
-            <hr>
-          </div>
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-lg-12">
-                {{sesh.answer}}
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-lg-12">
+                  <p class="ansPar">{{sesh.answer}}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      {{yield}}
+        {{yield}}
       {{else}}
-      <div class="col-lg-9 col-offset-3 allans">
-        <div id="integration-list">
-          <ul>
-            <li>
-              <!-- <a class="expand"> -->
-              <button id="expand" class="btn btn-lg  dropdown-toggle useroption pull-left " type="button" {{action 'all'}}>
+        <div class="col-lg-9 col-offset-3 allans">
+          <div id="integration-list">
+            <ul>
+              <li>
+                <!-- <a class="expand"> -->
+                <button id="expand" class="btn btn-lg  dropdown-toggle useroption pull-left " type="button" {{action 'all'}}>
                <span class="backar fa fa-arrow-left"></span>
              </button>
-                      <div class="right-arrow">x</div>
-                      <!-- <div>
+                <div class="right-arrow">x</div>
+                <!-- <div>
                           <h2>This is the title</h2>
                           <span>{{ans.question}}</span>
                       </div>
                   </a> -->
               </li>
-          </ul>
+            </ul>
           </div>
-      {{#each answer as |ans|}}
-        <div id="integration-list">
-          <ul>
-            <li>
-              <a class="expand">
-                      <div class="right-arrow">+</div>
-                      <div>
-                          <h2>This is the title</h2>
-                          <span>{{ans.question}}</span>
-                      </div>
+          {{#each answer as |ans|}}
+            <div id="integration-list">
+              <ul>
+                <li>
+                  <a class="expand">
+                    <div class="right-arrow">+</div>
+                    <div>
+                      <h2>This is the title</h2>
+                      <span>{{ans.question}}</span>
+                    </div>
                   </a>
                   <div class="detail">
-                      <!-- <div id="left" style="width:15%;float:left;height:100%;">
+                    <!-- <div id="left" style="width:15%;float:left;height:100%;">
                           <div id="sup">
                               <img src="http://www.ciagent.com/ciagent/cialogo4.png" width="100%" />
                           </div>
                       </div> -->
-                      <div id="right" style="width:85%;float:right;height:100%;padding-left:20px;">
-                          <div id="sup">
-                              <div>
-                                <span>{{ans.answer}}</span>
-                                  <br />
-                                  <br /><a href="#">Visit Website</a>
-                              </div>
-                          </div>
+                    <div id="right" style="width:85%;float:right;height:100%;padding-left:20px;">
+                      <div id="sup">
+                        <div>
+                          <span>{{ans.answer}}</span>
+                          <br />
+                          <br /><a href="#">Visit Website</a>
+                        </div>
                       </div>
+                    </div>
                   </div>
-            </li>
-          </ul>
-          </div>
+                </li>
+              </ul>
+            </div>
 
-      {{/each}}
-      </div>
-      {{all-answers}}
-{{/if}}
+          {{/each}}
+        </div>
+        {{all-answers}}
+      {{/if}}
       {{else if sesh.isStudent}}
       <ul class="timeline">
         <li class="col-lg-12">
@@ -179,52 +161,32 @@
             </div>
           </div>
         </li>
-        <!-- <li>
-            <div class="timeline-badge danger"><i class="glyphicon glyphicon-credit-card"></i></div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+        <!-- <div class="col-md-12 col-sm-9 ansa">
+          <a href="#collapseExample" data-toggle="tooltip" data-placement="right" title="Answer" class="dropdown-toggle  button2 btn btn-success btn-circle btn-lg " alt="New Quesstion"> <i class="fa fa-times"></i></a>
+          {{#each lecturer as |q|}}
+          <div class="panel panel-card collapse2" id="collapseExample">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-12">
+                  <a href="#" class="active" id="login-form-link">{{q.title}}</a>
+                </div>
+
               </div>
-              <div class="timeline-body">
-                <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+              <hr>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-lg-12">
+                  {{q.question}}
+                </div>
               </div>
             </div>
-          </li> -->
-      </ul>
-
-      <!-- <div class="col-lg-12">
-          <div id="tb-testimonial" class="testimonial testimonial-success-filled">
-              <div class="testimonial-section">
-
-            </div>
-
           </div>
-  </div> -->
-
-      <!--  This is for the students answer-->
-
+          {{/each}}
+        </div> -->
+      </ul>
       {{answer-area}}
-
-
     {{else}}
-      <!-- <div class="loading col-lg-12" id="loading"> -->
-      <!-- <div class="row">
-    <h3>WE ARE</h3>
-<b>
-  <span1>
-    web developer<br />
-    css cowboy<br />
-    self-facilitating media node<br />
-    box inside a box<br />
-    part of the problem
-    </span1>
-</b>
-</div> -->
-      <!-- <div class="row log">
-  <h3>Please Login To Continue</h3>
-  <button class="btn btn-md"data-toggle="snackbar" data-style="toast" tabindex="1" {{action 'toLogin'}} class="form-control btn btn-login" type="submit">Login</button>
-
-</div> -->
       <div class="carousel fade-carousel slide carousel-fade" data-ride="carousel" data-interval="4000" id="bs-carousel">
         <!-- Overlay -->
 

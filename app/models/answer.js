@@ -5,5 +5,4 @@ export default DS.Model.extend({
   student: DS.attr('string'),
   lecturer: DS.attr('string'),
   answer:DS.attr('string'),
-  //_id: DS.attr('string'),
 });

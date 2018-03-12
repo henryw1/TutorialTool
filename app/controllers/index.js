@@ -28,19 +28,19 @@ Ember.$(' .collapse2').toggleClass('collapse');
 
 return false;
 });
-Ember.$('#expand').on('click', function(){
-  debugger;
-  Ember.$('.ans').removeClass('col-lg-9');
-  Ember.$('.ans').toggleClass('col-lg-12');
-  Ember.$('#contract').removeClass('hidden');
-  Ember.$('#expand').toggleClass('hidden');
+Ember.$('#expanda').on('click', function(){
+
+  Ember.$('.ansa').removeClass('col-md-9');
+  Ember.$('.ansa').toggleClass('col-md-12');
+  Ember.$('#contracta').removeClass('hidden');
+  Ember.$('#expanda').toggleClass('hidden');
 });
 Ember.$('#contract').on('click', function(){
-  debugger;
-  Ember.$('.ans').toggleClass('col-lg-9');
-  Ember.$('.ans').removeClass('col-lg-12');
-  Ember.$('#contract').toggleClass('hidden');
-  Ember.$('#expand').removeClass('hidden');
+
+  Ember.$('.ansa').toggleClass('col-md-9');
+  Ember.$('.ansa').removeClass('col-md-12');
+  Ember.$('#contracta').toggleClass('hidden');
+  Ember.$('#expanda').removeClass('hidden');
 });
 Ember.$('.fab').hover(function () {
     //Ember.$(this).toggleClass('active');
@@ -48,9 +48,9 @@ Ember.$('.fab').hover(function () {
 Ember.$(function () {
   Ember.$('[data-toggle="tooltip"]').tooltip()
 });
-Ember.$('#fontSize').on("keyup",function() {
+Ember.$('#fontSizes').on("keyup",function() {
 
-	    	Ember.$('#question').css('font-size', Ember.$(this).val()+'px');
+	    	Ember.$('#ansPar').css('font-size', Ember.$(this).val()+'px');
 		});
 
 },
@@ -69,10 +69,13 @@ Ember.$('#fontSize').on("keyup",function() {
     ans: function(item) {
       var answer = item.get("answer");
       var sesh = this.get("sesh");
+
       sesh.set('answer', answer);
+      var name = item.data.name + '\'s'
+      sesh.set('name', name);
     },
     rmv: function(item) {
-      debugger;
+
       var _id = item.id;
       var store = this.get("store");
       var student = this.get("stud");

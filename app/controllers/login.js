@@ -57,16 +57,15 @@ export default Ember.Controller.extend({
           }
         var key = student1.data;
         if (key.session === password) {
-          debugger;
           session.set('isStudent',true);
           session.set('isAuthenticated', true);
           session.set('user', newname);
           session.set('key', key.session);
-          debugger;
           var student = this.store.createRecord('student', {
             name: newname,
             answer: " ",
             newans: " ",
+            session: password,
           });
           student.save();
           this.transitionToRoute('index');
@@ -79,14 +78,7 @@ export default Ember.Controller.extend({
         toastr.warning('Login Error');
       }
     },
-    // save:() {
-    //   debugger;
-    //   var student = this.store.createRecord('student', {
-    //     name: email,
-    //     answer: " ",
-    //   });
-    //   student.save();
-    // }
+
   }
 
 });

@@ -2216,7 +2216,7 @@ ember-cli-app-version@^3.0.0:
     ember-cli-babel "^6.8.0"
     git-repo-version "0.4.1"
 
-ember-cli-babel@^5.0.0, ember-cli-babel@^5.1.5, ember-cli-babel@^5.1.6, ember-cli-babel@^5.1.7:
+ember-cli-babel@^5.0.0, ember-cli-babel@^5.1.5, ember-cli-babel@^5.1.6, ember-cli-babel@^5.1.7, ember-cli-babel@^5.2.4:
   version "5.2.4"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-5.2.4.tgz#5ce4f46b08ed6f6d21e878619fb689719d6e8e13"
   dependencies:
@@ -2752,6 +2752,13 @@ ember-router-generator@^1.0.0:
   resolved "https://registry.yarnpkg.com/ember-router-generator/-/ember-router-generator-1.2.3.tgz#8ed2ca86ff323363120fc14278191e9e8f1315ee"
   dependencies:
     recast "^0.11.3"
+
+ember-runtime-enumerable-includes-polyfill@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/ember-runtime-enumerable-includes-polyfill/-/ember-runtime-enumerable-includes-polyfill-1.0.4.tgz#16a7612e347a2edf07da8b2f2f09dbfee70deba0"
+  dependencies:
+    ember-cli-babel "^5.1.6"
+    ember-cli-version-checker "^1.1.6"
 
 ember-runtime-enumerable-includes-polyfill@^2.0.0:
   version "2.0.0"
@@ -6400,6 +6407,14 @@ uglify-js@^2.6, uglify-js@^2.7.0:
 uglify-to-browserify@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
+
+ui-ember-slider@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/ui-ember-slider/-/ui-ember-slider-0.5.0.tgz#7f31dbd0636be1364501a7a34d504df0692f752b"
+  dependencies:
+    ember-cli-babel "^5.2.4"
+    ember-cli-htmlbars "^1.1.1"
+    ember-runtime-enumerable-includes-polyfill "^1.0.4"
 
 uid-number@^0.0.6:
   version "0.0.6"
