@@ -26,7 +26,21 @@ export default Ember.Component.extend({
       Ember.$('a[data-toggle="' + tog + '"]').not('[data-title="' + sel + '"]').removeClass('active').addClass('notActive');
       Ember.$('a[data-toggle="' + tog + '"][data-title="' + sel + '"]').removeClass('notActive').addClass('active');
     })
-  },
+  Ember.$('#slidera').on('change',function(){
+  Ember.$('#ansr').css('font-size', Ember.$(this).val() + 'px');
+});
+
+Ember.$(document).ready(function() {
+      Ember.$("#slidera").slider({
+          id: "slider12a",
+          animate: true,
+          value:18,
+          min: 18,
+          max: 150,
+          step: 1,
+      });
+  });
+    },
 
   actions: {
     answer: function() {

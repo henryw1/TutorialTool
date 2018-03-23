@@ -3,7 +3,7 @@
     <div id="integration-list">
       <ul>
         <li>
-          <h2> Collaborative Tutorial Tool
+          <h2 class="head"> Collaborative Tutorial Tool
           <button id="logout" class="btn btn-lg  logout dropdown-toggle useroption pull-right " type="button" {{action 'logout'}}>
          <span class="backar fa fa-sign-out"></span>
        </button>
@@ -59,34 +59,7 @@
         {{question-area}}
         <!-- ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt -->
 
-        <div class="col-md-9 col-sm-9 ansa">
-          <a href="#collapseExample" data-toggle="tooltip" data-placement="right" title="Answer" class="dropdown-toggle  button2 btn btn-success btn-circle btn-lg " alt="New Quesstion"> <i class="fa fa-times"></i></a>
-
-          <div class="panel panel-card collapse2" id="collapseExample">
-            <div class="panel-heading">
-              <div class="row">
-                <div class="col-xs-12">
-                  <div class="col-xs-6 price-slider">
-                    <div class="col-md-4">
-                      <input id="fontSizes" type="text" value="18" name="fontSize" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-xs-6">
-                  <a href="#" class="active" id="login-form-link">{{sesh.name}} answer</a>
-                </div>
-                </div>
-              </div>
-              <hr>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-lg-12">
-                  <p class="ansPar">{{sesh.answer}}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {{Answer-area}}
         {{yield}}
       {{else}}
         <div class="col-lg-9 col-offset-3 allans">

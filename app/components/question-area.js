@@ -48,60 +48,21 @@ export default Ember.Component.extend({
     Ember.$('.fab').hover(function() {
       //Ember.$(this).toggleClass('active');
     });
-    // Ember.$(function() {
-    //   Ember.$('[data-toggle="tooltip"]').tooltip()
-    // });
-    Ember.$('#fontSize').on("keyup", function() {
-      Ember.$('#question').css('font-size', Ember.$(this).val() + 'px');
+    Ember.$('#slider').on('change',function(){
+    Ember.$('#question').css('font-size', Ember.$(this).val() + 'px');
+  });
+
+  Ember.$(document).ready(function() {
+        Ember.$("#slider").slider({
+            id: "slider12a",
+            animate: true,
+            value:18,
+            min: 18,
+            max: 150,
+            step: 1,
+        });
     });
 
-    Ember.$(document).ready(function() {
-          var slider = Ember.$("#slider").slider({
-              animate: true,
-              value:1,
-              min: 0,
-              max: 200,
-              step: 10,
-              slide: function(event, ui) {
-                debugger
-                  update(1,ui.value);
-              }
-          });
-
-          //Added, set initial value.
-           Ember.$("#fontSize").val(18);
-          // Ember.$("#duration").val(0);
-          // Ember.$("#amount-label").text(0);
-          // Ember.$("#duration-label").text(0);
-          //
-          update();
-      });
-
-
-      //changed. now with parameter
-       function update(slider,val) {
-         debugger;
-        //changed. Now, directly take value from ui.value. if not set (initial, will use current value.)
-        var $amount = slider == 1?val:Ember.$("#fontSize").val();
-        var $duration = slider == 2?val:Ember.$("#duration").val();
-
-        /* commented
-        $amount = $( "#slider" ).slider( "value" );
-        $duration = $( "#slider2" ).slider( "value" );
-                 */
-
-        // $total = "$" + ($amount * $duration);
-        Ember.$('#question').css('#slider', $amount + 'px');
-          Ember.$( "#fontSize" ).val($amount);
-         Ember.$( "#fontSize" ).text($amount);
-         // Ember.$( "#duration" ).val($duration);
-         // Ember.$( "#duration-label" ).text($duration);
-         // Ember.$( "#total" ).val($total);
-         // Ember.$( "#total-label" ).text($total);
-
-         Ember.$('#slider a').html('<label><span class="glyphicon glyphicon-chevron-left"></span> '+$amount+' <span class="glyphicon glyphicon-chevron-right"></span></label>');
-         //Ember.$('#slider2 a').html('<label><span class="glyphicon glyphicon-chevron-left"></span> '+$duration+' <span class="glyphicon glyphicon-chevron-right"></span></label>');
-      }
 
   },
   actions: {
@@ -135,7 +96,6 @@ export default Ember.Component.extend({
         });
         newQ.save();
         store.findRecord('lecturer', _id).then(function(lecturer) {
-          // debugger;
           lecturer.get("question");
           lecturer.get("title");
           lecturer.set("question", newquestion);
@@ -148,7 +108,6 @@ export default Ember.Component.extend({
       }
     },
     size(output) {
-      // debugger;
       var fsize = this.get("rangeSuccess");
     },
     expand() {

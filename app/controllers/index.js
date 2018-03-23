@@ -69,12 +69,12 @@ Ember.$('#fontSizes').on("keyup",function() {
     ans: function(item) {
       var answer = item.get("answer");
       var sesh = this.get("sesh");
-
       sesh.set('answer', answer);
       var name = item.data.name + '\'s'
       sesh.set('name', name);
     },
     rmv: function(item) {
+      debugger;
 
       var _id = item.id;
       var store = this.get("store");
@@ -96,6 +96,27 @@ Ember.$('#fontSizes').on("keyup",function() {
      }else{
        session.set("isFull", true);
      }
-    }
+   },
+   logout(){
+     this.transitionToRoute('/');
+     var session = this.get("sesh");
+     session.set("isAuthenticated", false);
+     session.set("isLecturer", false);
+     session.set("user", null);
+     session.set("key", null);
+     debugger;
+     if(session.isStudent){
+       // TODO: Delete
+       var _id = session._id;
+       var store = this.get("store");
+       var student = this.get("stud");
+       store.findRecord("student", _id).then(function(student) {
+         
+         student.destroyRecord();
+       });
+     }
+     session.set("isStudent", false);
+     this.transitionToRoute('index');
+   }
   }
 })

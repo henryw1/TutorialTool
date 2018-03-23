@@ -29,14 +29,13 @@ export default Ember.Controller.extend({
       var lecturer = dat.findBy('name', email);
       var student1 = dat.findBy('session', password);
       if (lecturer) {
-        //debugger;
         var lecturer = lecturer.data;
         if (lecturer.key === password) {
+          session.set('key', lecturer.session);
           session.set('isLecturer', true);
           session.set('isAuthenticated', true);
           session.set('user', email);
           session.set('_id', lecturer._id)
-          //this.get('router').transitionTo('index');
           var toast = this.get('toast');
           toastr.success('Login Succesfull');
           this.transitionToRoute('index');
