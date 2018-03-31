@@ -6,12 +6,10 @@ export default Ember.Component.extend({
   quest: Ember.computed(function() {
     const store = this.get('store');
     return store.peekAll('question');
-
   }).volatile(),
   stud: Ember.computed(function() {
     const store = this.get('store');
     return store.peekAll('student');
-
   }).volatile(),
 //  classNames: ['slider', 'slide', 'carousel-fade', 'top'],
   didInsertElement() {
@@ -32,7 +30,6 @@ export default Ember.Component.extend({
       Ember.$('.ansa').removeClass('col-lg-9');
       //Ember.$('.ansa').removeClass('col-md-offset-3');
       Ember.$('.ansa').toggleClass('col-lg-12');
-
       Ember.$('#contract').removeClass('hidden');
       Ember.$('#expand').toggleClass('hidden');
     });
@@ -51,7 +48,6 @@ export default Ember.Component.extend({
     Ember.$('#slider').on('change',function(){
     Ember.$('#question').css('font-size', Ember.$(this).val() + 'px');
   });
-
   Ember.$(document).ready(function() {
         Ember.$("#slider").slider({
             id: "slider12a",
@@ -62,8 +58,6 @@ export default Ember.Component.extend({
             step: 1,
         });
     });
-
-
   },
   actions: {
     NewQuestion: function() {
@@ -105,6 +99,7 @@ export default Ember.Component.extend({
         toastr.success("Question added");
       } else {
         toastr.warning("question title and question must be added")
+        this.set("haserror", "has-error");
       }
     },
     size(output) {
@@ -119,7 +114,5 @@ export default Ember.Component.extend({
         session.set("isFull", true);
       }
     }
-
-
   }
 });

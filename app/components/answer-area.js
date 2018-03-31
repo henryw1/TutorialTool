@@ -29,7 +29,6 @@ export default Ember.Component.extend({
   Ember.$('#slidera').on('change',function(){
   Ember.$('#ansr').css('font-size', Ember.$(this).val() + 'px');
 });
-
 Ember.$(document).ready(function() {
       Ember.$("#slidera").slider({
           id: "slider12a",
@@ -44,7 +43,6 @@ Ember.$(document).ready(function() {
 
   actions: {
     answer: function() {
-      debugger;
       var session = this.get("sesh");
       var lecturer = this.get("lect").findBy("session", session.key);
       var lecID = lecturer.id;

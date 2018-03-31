@@ -5,7 +5,7 @@
         <div class="input-group col-lg-12">
           <span class="input-group-addon"><span class="token">{{sesh.key}}</span></span>
         </div>
-        <div class="input-group col-lg-12">
+        <div class="input-group col-lg-12 {{haserror}}">
           {{input type="text" name="key" id="key" tabindex="1" class="form-control" value=key placeholder="Session Key"}}
           <span class="input-group-addon success"><span class="fa fa-key"></span></span>
         </div>
@@ -15,7 +15,10 @@
           <nav class="nav-tabs">
             <button type="button" {{action "save" }} class="btn btn-labeled btn-success">
             <span class="btn-label"><i class="fa fa-save"></i></span>Save</button>
+            <button type="button" {{action "reset" }} class="btn btn-labeled pull-right btn-danger">
+            <span class="btn-label"><i class="fa fa-refresh"></i></span>Reset</button>
           </nav>
+
         </div>
       </div>
 

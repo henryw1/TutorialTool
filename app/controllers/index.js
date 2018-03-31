@@ -25,18 +25,15 @@ return false;
 Ember.$('a.button2').on('click', function(){
 Ember.$(' a.button2').toggleClass('active');
 Ember.$(' .collapse2').toggleClass('collapse');
-
 return false;
 });
 Ember.$('#expanda').on('click', function(){
-
   Ember.$('.ansa').removeClass('col-md-9');
   Ember.$('.ansa').toggleClass('col-md-12');
   Ember.$('#contracta').removeClass('hidden');
   Ember.$('#expanda').toggleClass('hidden');
 });
 Ember.$('#contract').on('click', function(){
-
   Ember.$('.ansa').toggleClass('col-md-9');
   Ember.$('.ansa').removeClass('col-md-12');
   Ember.$('#contracta').toggleClass('hidden');
@@ -48,10 +45,10 @@ Ember.$('.fab').hover(function () {
 Ember.$(function () {
   Ember.$('[data-toggle="tooltip"]').tooltip()
 });
-Ember.$('#fontSizes').on("keyup",function() {
-
-	    	Ember.$('#ansPar').css('font-size', Ember.$(this).val()+'px');
-		});
+// Ember.$('#fontSizes').on("keyup",function() {
+//
+// 	    	Ember.$('#ansPar').css('font-size', Ember.$(this).val()+'px');
+// 		});
 
 },
   actions: {
@@ -74,15 +71,12 @@ Ember.$('#fontSizes').on("keyup",function() {
       sesh.set('name', name);
     },
     rmv: function(item) {
-      debugger;
-
       var _id = item.id;
       var store = this.get("store");
       var student = this.get("stud");
       store.findRecord("student", _id).then(function(student) {
         student.destroyRecord();
       });
-
     },
     willTransition: function(transition) {
       this._super(transition);
@@ -104,14 +98,12 @@ Ember.$('#fontSizes').on("keyup",function() {
      session.set("isLecturer", false);
      session.set("user", null);
      session.set("key", null);
-     debugger;
      if(session.isStudent){
        // TODO: Delete
        var _id = session._id;
        var store = this.get("store");
        var student = this.get("stud");
        store.findRecord("student", _id).then(function(student) {
-         
          student.destroyRecord();
        });
      }
