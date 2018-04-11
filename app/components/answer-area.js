@@ -40,7 +40,6 @@ Ember.$(document).ready(function() {
       });
   });
     },
-
   actions: {
     answer: function() {
       var session = this.get("sesh");

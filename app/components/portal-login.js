@@ -1,5 +1,4 @@
 import Ember from 'ember';
-
 export default Ember.Component.extend({
   session: Ember.inject.service('session'),
   store: Ember.inject.service(),
@@ -11,10 +10,8 @@ export default Ember.Component.extend({
     const store = this.get('store');
     return store.peekAll('student');
   }).volatile(),
-
   actions: {
     authenticate() {
-      debugger;
       var store = this.get("store");
       var sesh = this.get("session");
       var dat = this.get("lect");
@@ -26,18 +23,16 @@ export default Ember.Component.extend({
         var lecturer = lecturer.data;
         if (lecturer.key === password) {
           sesh.set('isAuthenticated', true);
-          debugger;
           sesh.set('user', name);
           this.get('router').transitionTo('index');
         } else {
-          console.log("dont enter");
+          console.log("");
         }
       } else if (student) {
         var key = student.data;
         if (key.session === password) {
           sesh.set('isAuthenticated', true);
           sesh.set('user', name);
-          debugger;
           sesh.set('key', key.session);
           var newstudent = store.createRecord('student', {
             name: name,
@@ -45,11 +40,11 @@ export default Ember.Component.extend({
           newstudent.save();
           this.get('router').transitionTo('index');
         } else {
-          console.log("dont enter");
+          console.log("");
         }
 
       } else {
-        console.log("dont enter");
+        console.log("");
       }
     },
   }

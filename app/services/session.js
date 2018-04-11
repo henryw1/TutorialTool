@@ -6,7 +6,7 @@ export default Ember.Service.extend({
   isAuthenticated: false,
   user:null,
   _id:null,
-isLecturer:false,
+  isLecturer:false,
 isStudent:false,
 answer:null,
 key:null,

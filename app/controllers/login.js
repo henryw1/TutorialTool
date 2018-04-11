@@ -1,5 +1,4 @@
 import Ember from 'ember';
-
 export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
   store: Ember.inject.service(),
@@ -13,28 +12,25 @@ export default Ember.Controller.extend({
   stud: Ember.computed(function() {
     const store = this.get('store');
     return store.peekAll('student');
-
   }).volatile(),
-
   actions: {
     authenticate() {
       toastr.options={
         'progressBar':false,
-      }
-      //var store = this.get("store");
+      }//var store = this.get("store");
       var session = this.get("session");
-      var dat = this.get("lect");
-      var email = this.get("name");
+      var lect = this.get("lect");
+      var username = this.get("name");
       var password = this.get("password");
-      var lecturer = dat.findBy('name', email);
-      var student1 = dat.findBy('session', password);
+      var lecturer = lect.findBy('name', username);
+      var student1 = lect.findBy('session', password);
       if (lecturer) {
         var lecturer = lecturer.data;
         if (lecturer.key === password) {
           session.set('key', lecturer.session);
           session.set('isLecturer', true);
           session.set('isAuthenticated', true);
-          session.set('user', email);
+          session.set('user', username);
           session.set('_id', lecturer._id)
           var toast = this.get('toast');
           toastr.success('Login Succesfull');
@@ -46,14 +42,14 @@ export default Ember.Controller.extend({
       } else if (student1) {
         var stud = this.get("stud").content;
         var index = 0;
-        var newname = email;
+        var newname = username;
           for (var i = 0; i < stud.length; i++){
             if(stud[i].__data.name === newname){
             index = index + 1;
-            newname = email + "-0" + index;
+            newname = username + "-0" + index;
             i=0;
           }
-          }
+         }
         var key = student1.data;
         if (key.session === password) {
           session.set('isStudent',true);
